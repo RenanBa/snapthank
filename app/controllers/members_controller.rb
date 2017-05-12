@@ -1,11 +1,13 @@
 class MembersController < ApplicationController
   def index
-    if request_ip(request.ip)
-      @members = Member.all
-      render json: @members
-    else
-      render json: "Access not authorized"
-    end
+    @members = Member.all
+    render json: @members
+    # if request_ip(request.ip)
+    #   @members = Member.all
+    #   render json: @members
+    # else
+    #   render json: "Access not authorized"
+    # end
   end
 
   def show
