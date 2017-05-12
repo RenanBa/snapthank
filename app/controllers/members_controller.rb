@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.all
+    @members = ENV["PERMISSIONS"]
     render json: @members
     # if request_ip(request.ip)
     #   @members = Member.all
