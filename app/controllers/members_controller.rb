@@ -40,8 +40,8 @@ class MembersController < ApplicationController
 
   def update
     if request_ip(request.ip)
-      @member = Member.find_by(email: params[:email])
-      if @member.update(email: params[:email], name: params[:name])
+      @member = Member.find_by(email: params[:find_email])
+      if @member.update(email: params[:new_email], name: params[:name])
         render json: "Member update name: #{@member.name}. Email: #{@member.email}"
       else
         render json: "Error to update"
