@@ -1,9 +1,7 @@
 class MembersController < ApplicationController
   def index
-    @env = ENV["IP"]
-    @array = ENV["IP"].split()
-    @length = ENV["IP"].split().length
-    render json: "ENV:#{@env}, ARRAY:#{@array}, Length:#{length}"
+    @t = ENV["IP"].split()
+    render json: @t
     # if request_ip(request.ip)
     #   @members = Member.all
     #   render json: @members
