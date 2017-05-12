@@ -19,14 +19,14 @@ class MembersController < ApplicationController
   end
 
   def create
-    render json: "CREATE"
-    # @member = Member.new(member_params)
+    @member = Member.new(member_params)
 
-    # if @member.save
-    #   redirect_to @member
-    # else
-    #   render 'new'
-    # end
+    if @member.save
+      # redirect_to @member
+      render json: "New member created #{@member.name}"
+    else
+      render json: "Error."
+    end
   end
 
   def update
