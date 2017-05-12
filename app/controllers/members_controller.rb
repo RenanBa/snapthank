@@ -1,25 +1,11 @@
 class MembersController < ApplicationController
   def index
-
-    @array = []
-    @request = request.ip
-    @trueFalse = []
-    (0..ENV["IP"].split().length).each do |i|
-      @array.push(ENV["IP"].split()[i])
-      if ENV["IP"].split()[i] == request.ip
-        @trueFalse.push(true)
-      else
-        @trueFalse.push(false)
-      end
+    if request_ip(request.ip)
+      @members = Member.all
+      render json: @members
+    else
+      render json: "Access not authorized"
     end
-
-    render :json => {:request => @request, :array => @array, :env => ENV["IP"], :trueFalse => @trueFalse}.to_json
-    # if request_ip(request.ip)
-    #   @members = Member.all
-    #   render json: @members
-    # else
-    #   render json: "Access not authorized"
-    # end
   end
 
   def show
