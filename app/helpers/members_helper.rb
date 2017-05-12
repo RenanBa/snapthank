@@ -1,10 +1,8 @@
 module MembersHelper
 
   def request_ip(ip)
-    if ip == ENV['IP']
-      return true
-    else
-      return false
+    (0..ENV["IP"].split().length).each do |i|
+      ip == ENV["IP"].split()[i] ? (return true) : (return false)
     end
   end
 end
