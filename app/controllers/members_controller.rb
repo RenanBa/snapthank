@@ -1,53 +1,68 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.all
-    render json: @members
+    if request_ip(request.ip)
+      @members = Member.all
+      render json: @members
+    else
+      render json: "Access not authorized"
+    end
   end
 
   def show
-    @member = Member.find(params[:id])
-    render json: @member
+    if request_ip(request.ip)
+      @member = Member.find(params[:id])
+      render json: @member
+    else
+      render json: "Access not authorized"
+    end
   end
 
-  def new
-    @member = Member.new
-    render json: "NEW"
-  end
+  # def new
+  #   @member = Member.new
+  # end
 
-  def edit
-    @member = Member.find(params[:id])
-  end
+  # def edit
+  #   @member = Member.find(params[:id])
+  # end
 
   def create
-    @member = Member.new(member_params)
-
-    if @member.save
-      # redirect_to @member
-      render json: "New member created #{@member.name}"
+    if request_ip(request.ip)
+      @member = Member.new(email: params[:email], name: params[:name])
+      if @member.save
+        render json: "New member created #{@member.name}"
+      else
+        render json: "Error."
+      end
     else
-      render json: "Error."
+      render json: "Access not authorized"
     end
   end
 
   def update
-    @member = Member.find(params[:id])
-
-    if @member.update(member_params)
-      redirect_to @member
+    if request_ip(request.ip)
+      @member = Member.find_by(email: params[:email])
+      if @member.update(email: params[:email], name: params[:name])
+        render json: "Member update name: #{@member.name}. Email: #{@member.email}"
+      else
+        render json: "Error to update"
+      end
     else
-      render 'edit'
+      render json: "Access not authorized"
     end
   end
 
   def destroy
-    @member = Member.find(params[:id])
-    @member.destroy
-
-    redirect_to members_path
+    if request_ip(request.ip)
+      @member = Member.find(params[:id])
+      @member.destroy
+      render json: "Member deleted."
+    else
+      render json: "Access not authorized"
+    end
   end
 
-  private
-    def member_params
-      params.require(:member).permit(:email, :name)
-    end
+  # private
+  #   def member_params
+  #     params.require(:member).permit(:email, :name)
+  #   end
 end
