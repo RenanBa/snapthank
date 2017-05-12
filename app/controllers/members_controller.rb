@@ -1,19 +1,5 @@
 class MembersController < ApplicationController
   def index
-
-    # @array = []
-    # @request = request.ip
-    # @trueFalse = []
-    # (0..ENV["IP"].split().length).each do |i|
-    #   @array.push(ENV["IP"].split()[i])
-    #   if ENV["IP"].split()[i] == request.ip
-    #     @trueFalse.push(true)
-    #   else
-    #     @trueFalse.push(false)
-    #   end
-    # end
-
-    # render :json => {:request => @request, :array => @array, :env => ENV["IP"], :trueFalse => @trueFalse}.to_json
     if request_ip(request.ip)
       @members = Member.all
       render json: @members
