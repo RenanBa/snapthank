@@ -1,7 +1,13 @@
 class MembersController < ApplicationController
   def index
-    # @t = ENV["IP"].split().length
-    render json: request.ip
+
+    @array = []
+
+    (0..ENV["IP"].split().length).each do |i|
+      @array.push(ENV["IP"].split()[i])
+    end
+
+    render :json => {:array => @array, :env => ENV["IP"]}.to_json
     # if request_ip(request.ip)
     #   @members = Member.all
     #   render json: @members
