@@ -25,18 +25,37 @@ class MembersController < ApplicationController
   #   @member = Member.find(params[:id])
   # end
 
+  # def create
+  #   if request_ip(request.ip)
+  #     @member = Member.new(email: params[:email], name: params[:name])
+  #     if @member.save
+  #       render json: "New member created #{@member.name}"
+  #     else
+  #       render json: "Error."
+  #     end
+  #   else
+  #     render json: "Access not authorized"
+  #   end
+  # end
+
+  # Create with mailer action call
   def create
-    if request_ip(request.ip)
-      @member = Member.new(email: params[:email], name: params[:name])
+    @member = Member.new(email: params[:email], name: params[:name])
+
+    respond_to do |format|
       if @member.save
-        render json: "New member created #{@member.name}"
+        # Tell the memberMailer to send a welcome email after save
+        UserMailer.welcome_email(@member).deliver_later
+
+        format.html { redirect_to(@member, notice: 'member was successfully created.') }
+        format.json { render json: @member, status: :created, location: @member }
       else
-        render json: "Error."
+        format.html { render action: 'new' }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
       end
-    else
-      render json: "Access not authorized"
     end
   end
+
 
   def update
     if request_ip(request.ip)
