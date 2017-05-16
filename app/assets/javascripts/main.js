@@ -29,6 +29,7 @@ var errorCallback = function(e) {
   //   };
   // }, errorCallback);
 
+
 var mediaRecorder;
 var chunks = [];
 var count = 0;
@@ -40,8 +41,8 @@ function startRecording(stream) {
 
   mediaRecorder.start(10);
 
-    var video = document.querySelector('video');
-    video.src = window.URL.createObjectURL(stream);
+  var video = document.querySelector('video');
+  video.src = window.URL.createObjectURL(stream);
   // var url = window.URL || window.webkitURL;
   // videoElement.src = url ? url.createObjectURL(stream) : stream;
   // videoElement.play();
@@ -55,7 +56,7 @@ function startRecording(stream) {
   };
 
   mediaRecorder.onerror = function(e){
-    log('Error: ' + e);
+    console.log('Error: ' + e);
     console.log('Error: ', e);
   };
 
@@ -65,22 +66,24 @@ function startRecording(stream) {
   };
 
   mediaRecorder.onstop = function(){
-    log('Stopped  & state = ' + mediaRecorder.state);
+    console.log('Stopped  & state = ' + mediaRecorder.state);
 
     var blob = new Blob(chunks, {type: "video/webm"});
     chunks = [];
 
     var videoURL = window.URL.createObjectURL(blob);
 
-    downloadLink.href = videoURL;
-    videoElement.src = videoURL;
-    downloadLink.innerHTML = 'Download video file';
+    // downloadLink.href = videoURL;
+    // videoElement.src = videoURL;
+    video.src = videoURL
+
+    // downloadLink.innerHTML = 'Download video file';
 
     var rand =  Math.floor((Math.random() * 10000000));
     var name  = "video_"+rand+".webm" ;
 
-    downloadLink.setAttribute( "download", name);
-    downloadLink.setAttribute( "name", name);
+    // downloadLink.setAttribute( "download", name);
+    // downloadLink.setAttribute( "name", name);
   };
 }
 
@@ -96,4 +99,13 @@ function onBtnRecordClicked (){
     // pauseResBtn.disabled = false;
     // stopBtn.disabled = false;
   }
+}
+
+function onBtnStopClicked(){
+  mediaRecorder.stop();
+  video.controls = true;
+
+  // recBtn.disabled = false;
+  // pauseResBtn.disabled = true;
+  // stopBtn.disabled = true;
 }
