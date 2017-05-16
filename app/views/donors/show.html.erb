@@ -1,4 +1,33 @@
-<h1>SnapThank</h1>
+<script>
+  function hasGetUserMedia() {
+  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+if (hasGetUserMedia()) {
+  console.log("Good to go!");
+} else {
+  alert('getUserMedia() is not supported in your browser');
+}
+</script>
+
+
+<video autoplay id="video"></video>
+
+<script>
+
+</script>
+
+
+<div id="center-content">
+  <!-- <video autoplay id="video"></video> -->
+  <div id="center-buttons">
+    <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
+    <button class="stop buttons">STOP</button>
+    <button class="send buttons">SEND</button>
+  </div>
+
+  <h1>SnapThank</h1>
 
 <h3>Donor's name: <%= @donor.name %></h3>
 <h3>Donor's donation: <%= @donor.donation %></h3>
@@ -13,3 +42,7 @@
     <%= f.submit %>
   </p>
 <% end %>
+</div>
+
+
+
