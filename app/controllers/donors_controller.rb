@@ -25,18 +25,37 @@ class DonorsController < ApplicationController
   #   @donor = Donor.find(params[:id])
   # end
 
+  # def create
+  #   if request_ip(request.ip)
+  #     @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
+  #     if @donor.save
+  #       render json: "New donor created #{@donor.name}"
+  #     else
+  #       render json: "Error."
+  #     end
+  #   else
+  #     render json: "Access not authorized"
+  #   end
+  # end
+
+  # Create with mailer action call
   def create
-    if request_ip(request.ip)
-      @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
+    @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
+    @member = Member.find_by(name: "Renan Souza")
+    respond_to do |format|
       if @donor.save
-        render json: "New donor created #{@donor.name}"
+        # Tell the donorMailer to send a welcome email after save
+        UserMailer.welcome_email(@member, @donor).deliver_later
+
+        format.html { redirect_to(@donor, notice: 'donor was successfully created.') }
+        format.json { render json: @donor, status: :created, location: @donor }
       else
-        render json: "Error."
+        format.html { render action: 'new' }
+        format.json { render json: @donor.errors, status: :unprocessable_entity }
       end
-    else
-      render json: "Access not authorized"
     end
   end
+
 
   # def update
     # if permission()

@@ -1,9 +1,10 @@
 class UserMailer < ApplicationMailer
    default from: 'renancontactme@gmail.com'
 
-  def welcome_email(member)
+  def welcome_email(member, donor)
     @member = member
-    @url  = 'http://localhost:3000/members/'
-    mail(to: @member.email, subject: 'Welcome to My Awesome Site')
+    @donor = donor
+    @url  = "https://snapthank.herokuapp.com/donors/#{@donor.id}"
+    mail(to: @member.email, subject: "#{@donor.name} just made a donation")
   end
 end
