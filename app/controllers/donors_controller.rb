@@ -41,7 +41,7 @@ class DonorsController < ApplicationController
   # Create with mailer action call
   def create
     @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
-    @member = Member.find_by(name: "Renan Souza")
+    @member = Member.all.last
     respond_to do |format|
       if @donor.save
         # Tell the donorMailer to send a welcome email after save

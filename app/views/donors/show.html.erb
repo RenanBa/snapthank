@@ -23,19 +23,19 @@ if (hasGetUserMedia()) {
 
   <h1>SnapThank</h1>
 
-<!-- <h3>Donor's name: <%#= @donor.name %></h3>
-<h3>Donor's donation: <%#= @donor.donation %></h3>
+<h3>Donor's name: <%= @donor.name %></h3>
+<h3>Donor's donation: <%= @donor.donation %></h3>
 
 
-<%#= form_for([@donor, @donor.videos.build]) do |f| %>
+<%= form_for([@donor, @donor.videos.build]) do |f| %>
   <p>
-    <%#= f.label :link %><br>
-    <%#= f.text_field :link %>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
   </p>
   <p>
-    <%#= f.submit %>
+    <%= f.submit %>
   </p>
-<%# end %> -->
+<% end %>
 </div>
 
 
