@@ -20,7 +20,7 @@ class VideosController < ApplicationController
       @video = @donor.videos.create(video_params)
       respond_to do |format|
         if @video.save
-          # Tell the donorMailer to send a welcome email after save
+          # Request the userMailer to send a welcome email after save
           UserMailer.thanks_email(@donor, @video).deliver_later
 
           format.html { redirect_to(@donor, notice: 'video link was successfully created.') }
