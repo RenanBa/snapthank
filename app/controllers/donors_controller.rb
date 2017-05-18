@@ -41,12 +41,10 @@ class DonorsController < ApplicationController
   # Create with mailer action call
   def create
     @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
-    @member = Member.all.last
     respond_to do |format|
       if @donor.save
-        # Tell the donorMailer to send a welcome email after save
+        @member = select_member(@donor)
         UserMailer.welcome_email(@member, @donor).deliver_later
-
         format.html { redirect_to(@donor, notice: 'donor was successfully created.') }
         format.json { render json: @donor, status: :created, location: @donor }
       else
