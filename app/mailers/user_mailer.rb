@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-   default from: 'renancontactme@gmail.com'
+   default from: ENV['gmail_username']
 
   def welcome_email(member, donor)
     @member = member
