@@ -9,6 +9,13 @@ class VideosController < ApplicationController
   end
 
   def create
+    @video = Video.new(video_params)
+    if @video.save
+      flash[:success] = 'Video added!'
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   # This is part of the action mailer for when a new video is created
@@ -33,8 +40,11 @@ class VideosController < ApplicationController
   #   end
   # end
 
-  # private
-  #   def video_params
-  #     params.require(:video).permit(:link)
-  #   end
+
+  # This belongs to the action mailer create method which is commented but it
+  # is also used for the google api call when a link is add from youtube
+  private
+    def video_params
+      params.require(:video).permit(:link)
+    end
 end
