@@ -2,8 +2,18 @@
 
 one:
   link: MyString
+  title: MyString
+  published_at: 2017-05-23 13:44:10
+  likes: 1
+  dislikes: 1
+  uid: MyString
   donor: one
 
 two:
   link: MyString
+  title: MyString
+  published_at: 2017-05-23 13:44:10
+  likes: 1
+  dislikes: 1
+  uid: MyString
   donor: two
