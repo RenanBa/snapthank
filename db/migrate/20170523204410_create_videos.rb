@@ -7,7 +7,7 @@ class CreateVideos < ActiveRecord::Migration[5.0]
       t.integer :likes
       t.integer :dislikes
       t.string :uid
-      t.references :donor, foreign_key: true
+      # t.references :donor, foreign_key: true
 
       t.timestamps
     end
