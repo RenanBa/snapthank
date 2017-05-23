@@ -1,11 +1,10 @@
 class Video < ApplicationRecord
-  belongs_to :donor
-
+  # belongs_to :donor
 
   YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
   validates :link, presence: true, format: YT_LINK_FORMAT
 
-  def before_save(resource)
+  def self.before_save(resource)
     video = Yt::Video.new url: resource.link
     resource.uid = video.id
     resource.title = video.title
