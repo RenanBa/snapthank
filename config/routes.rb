@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :donors do
     resources :videos
   end
+
+  resources :videos, only: [:index, :new, :create]
+  root to: 'videos#index'
 end
