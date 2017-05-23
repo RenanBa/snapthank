@@ -37,12 +37,9 @@ ActiveRecord::Schema.define(version: 20170523204410) do
     t.integer  "likes"
     t.integer  "dislikes"
     t.string   "uid"
-    t.integer  "donor_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["donor_id"], name: "index_videos_on_donor_id", using: :btree
     t.index ["uid"], name: "index_videos_on_uid", using: :btree
   end
 
-  add_foreign_key "videos", "donors"
 end
