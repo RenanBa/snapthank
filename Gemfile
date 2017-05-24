@@ -9,7 +9,7 @@ end
 gem 'yt', '~> 0.13.7'
 gem 'bootstrap-sass', '~> 3.3.0.1'
 gem 'autoprefixer-rails'
-# gem 'rails-observers', '~> 0.1.0'
+gem 'omniauth-google-oauth2'
 
 
 
