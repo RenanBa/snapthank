@@ -2,10 +2,12 @@ class VideoUploadsController < ApplicationController
 
   def new
     # @video_upload = VideoUpload.new
+    10.times{p "VideoUpload"}
     @video_upload = Video.new
   end
 
   def create
+    10.times{p "VideoUpload"}
     @video_upload = VideoUpload.new(title: params[:video_upload][:title], description: params[:video_upload][:description], file: params[:video_upload][:file].try(:tempfile).try(:to_path))
 
     if @video_upload.save

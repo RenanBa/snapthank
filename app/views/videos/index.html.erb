@@ -18,9 +18,9 @@
           <% if video %>
             <div class="col-md-4">
               <div class="yt_video thumbnail">
-                <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+                <%= link_to image_tag("https://img.youtube.com/vi/#{video.link}/mqdefault.jpg", alt: video.title,
                                       class: 'img-rounded'),
-                            "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+                            "https://www.youtube.com/watch?v=#{video.link}", target: '_blank' %>
                 <div class="caption">
                   <h4>Title: <%= video.title %></h4>
                   <p>Published at <%= video.published_at %></p>

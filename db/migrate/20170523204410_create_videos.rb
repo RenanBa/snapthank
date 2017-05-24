@@ -8,7 +8,7 @@ class CreateVideos < ActiveRecord::Migration[5.0]
       t.integer :dislikes
       t.string :uid
 
-      t.varchar :file
+      t.string :file
       t.text :description
 
       # t.references :donor, foreign_key: true

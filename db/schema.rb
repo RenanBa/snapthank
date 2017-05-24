@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20170524181757) do
     t.integer  "likes"
     t.integer  "dislikes"
     t.string   "uid"
+    t.string   "file"
+    t.text     "description"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["uid"], name: "index_videos_on_uid", using: :btree

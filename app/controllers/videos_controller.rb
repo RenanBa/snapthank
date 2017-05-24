@@ -5,17 +5,47 @@ class VideosController < ApplicationController
   end
 
   def new
-    @video = Video.new
+    10.times{p "Video"}
+
+    @video_upload = Video.new
   end
 
   def create
-    @video = Video.new(link: params[:video][:link])
-    Video.before_save(@video)
-    if @video.save
-      flash[:success] = 'Video added!'
-      redirect_to root_url
+
+
+    if params[:video][:file] != nil
+      10.times{p "UPLOAD"}
+      @video_upload = Video.new(title: params[:video][:title],
+                                      description: params[:video][:description],
+                                      file: params[:video][:file].try(:tempfile).try(:to_path))
+      if @video_upload.save
+        10.times{p "SAVED"}
+        uploaded_video = @video_upload.upload!(current_user)
+
+        if uploaded_video.failed?
+          flash[:error] = 'There was an error while uploading your video...'
+        else
+          10.times{p "creating link"}
+          10.times{p uploaded_video.id}
+          @video_upload.update!(link: uploaded_video.id)
+          # Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}"})
+          flash[:success] = 'Your video has been uploaded!'
+        end
+
+        redirect_to root_url
+      else
+        render :new
+      end
     else
-      render :new
+      10.times{p "LINK"}
+      @video = Video.new(link: params[:video][:link])
+      Video.before_save(@video)
+      if @video.save
+        flash[:success] = 'Video added!'
+        redirect_to root_url
+      else
+        render :new
+      end
     end
   end
 
