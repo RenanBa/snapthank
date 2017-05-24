@@ -22,11 +22,13 @@
                                       class: 'img-rounded'),
                             "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
                 <div class="caption">
-                  <h5><%= video.title %></h5>
+                  <h4>Title: <%= video.title %></h4>
                   <p>Published at <%= video.published_at %></p>
                   <p>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                    Likes: <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                  </p>
+                  <p>
+                    Dislikes: <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
                   </p>
                 </div>
               </div>
