@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: :logout
 
+  resources :video_uploads, only: [:new, :create]
+
   # put '/members/update', to: 'members#update'
   resources :members
   resources :donors do
