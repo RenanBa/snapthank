@@ -10,6 +10,7 @@ gem 'yt', '~> 0.13.7'
 gem 'bootstrap-sass', '~> 3.3.0.1'
 gem 'autoprefixer-rails'
 gem 'omniauth-google-oauth2'
+gem 'active_type', '0.3.1'
 
 
 
