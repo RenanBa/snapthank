@@ -12,7 +12,6 @@ class VideosController < ApplicationController
 
   def create
 
-
     if params[:video][:file] != nil
       10.times{p "UPLOAD"}
       @video_upload = Video.new(title: params[:video][:title],

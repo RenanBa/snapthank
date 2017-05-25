@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(version: 20170524181757) do
   create_table "videos", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
-    t.datetime "published_at"
-    t.integer  "likes"
-    t.integer  "dislikes"
     t.string   "uid"
     t.string   "file"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "donor_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["donor_id"], name: "index_videos_on_donor_id", using: :btree
     t.index ["uid"], name: "index_videos_on_uid", using: :btree
   end
 
+  add_foreign_key "videos", "donors"
 end

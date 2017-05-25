@@ -10,7 +10,9 @@ class DonorsController < ApplicationController
 
   def show
     # if permission()
+    10.times{p "Donor show"}
       @donor = Donor.find(params[:id])
+      @video_upload = Video.new
       # render json: @donor
     # else
     #   render json: "Access not authorized"

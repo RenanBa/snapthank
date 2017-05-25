@@ -10,7 +10,8 @@ if (hasGetUserMedia()) {
   alert('getUserMedia() is not supported in your browser');
 }
 </script>
-
+<h3>Donor's name: <%= @donor.name %></h3>
+<h3>Donor's donation: <%= @donor.donation %></h3>
 
 <video autoplay id="video"></video>
 
@@ -21,21 +22,46 @@ if (hasGetUserMedia()) {
     <button class="send buttons">SEND</button>
   </div>
 
-  <h1>SnapThank</h1>
+<div class="container">
+  <h1>Upload video</h1>
+  <% if current_user %>
+    <%= form_for @video_upload do |f| %>
+      <%= render 'shared/errors', object: @video_upload %>
 
-<h3>Donor's name: <%= @donor.name %></h3>
-<h3>Donor's donation: <%= @donor.donation %></h3>
+      <div class="form-group">
+        <%= f.label :file %>
+        <%= f.file_field :file, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', cols: 3 %>
+      </div>
+
+      <%= f.submit 'Upload', class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <p>Please <%= link_to 'sign in', '/auth/google_oauth2' %>.</p>
+  <% end %>
+</div>
 
 
-<%= form_for([@donor, @donor.videos.build]) do |f| %>
+
+
+<%#= form_for([@donor, @donor.videos.build]) do |f| %>
   <p>
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
+    <%#= f.label :link %><br>
+    <%#= f.text_field :link %>
   </p>
   <p>
-    <%= f.submit %>
+    <%#= f.submit %>
   </p>
-<% end %>
+<%# end %>
 </div>
 
 
