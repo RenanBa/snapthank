@@ -1,4 +1,5 @@
 <script>
+
   function hasGetUserMedia() {
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
@@ -15,17 +16,19 @@ if (hasGetUserMedia()) {
 
 <video autoplay id="video"></video>
 
+
 <div id="center-content">
   <div id="center-buttons">
     <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
     <button class="stop buttons" onclick="onBtnStopClicked()">STOP</button>
-    <button class="send buttons">SEND</button>
+    <button class='send buttons' onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
   </div>
 
 <div class="container">
   <h1>Upload video</h1>
   <% if current_user %>
-    <%= form_for @video_upload do |f| %>
+    <!-- <%#= form_for @video_upload do |f| %> -->
+    <%= form_for([@donor, @donor.videos.build]) do |f| %>
       <%= render 'shared/errors', object: @video_upload %>
 
       <div class="form-group">

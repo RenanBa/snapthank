@@ -1,4 +1,7 @@
 console.log("main.js");
+
+
+
 // HD constraints
 var constraints = {
   audio: true,
@@ -52,10 +55,12 @@ function startRecording(stream) {
   mediaRecorder.onstop = function(){
     console.log('Stopped  & state = ' + mediaRecorder.state);
 
-    var blob = new Blob(chunks, {type: "video/webm"});
+    blob = new Blob(chunks, {type: "video/webm"});
     chunks = [];
 
-    var videoURL = window.URL.createObjectURL(blob);
+    videoURL = window.URL.createObjectURL(blob);
+
+    // var downloadLink = document.querySelector('a#downloadLink');
 
     // downloadLink.href = videoURL;
     // videoElement.src = videoURL;
@@ -63,15 +68,13 @@ function startRecording(stream) {
 
     // downloadLink.innerHTML = 'Download video file';
 
-    var rand =  Math.floor((Math.random() * 10000000));
-    var name  = "video_"+rand+".webm" ;
+    // var rand =  Math.floor((Math.random() * 10000000));
+    // var name  = "video_"+rand+".webm" ;
 
     // downloadLink.setAttribute( "download", name);
     // downloadLink.setAttribute( "name", name);
   };
 }
-
-
 
 
 function onBtnRecordClicked (){
@@ -93,3 +96,30 @@ function onBtnStopClicked(){
   // pauseResBtn.disabled = true;
   // stopBtn.disabled = true;
 }
+
+function onBtnSendClicked(id){
+  console.log("AJAX!");
+  var rand =  Math.floor((Math.random() * 10000000));
+  var title  = "video_"+rand+".webm" ;
+  var description = "SnapThank";
+  var fd = new FormData();
+  fd.append('webmasterfile', blob);
+  fd.append("title", title);
+  fd.append("description", description);
+  fd.append("donor_id", id)
+//   for (var value of fd.values()) {
+//    console.log(value);
+// }
+
+// fd.append('data', blob);
+  $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/videos',
+      data: fd,
+      processData: false,
+      contentType: false
+  }).done(function(data) {
+         console.log(data);
+  });
+}
+

@@ -12,11 +12,18 @@ class VideosController < ApplicationController
 
   def create
 
-    if params[:video][:file] != nil
-      10.times{p "UPLOAD"}
-      @video_upload = Video.new(title: params[:video][:title],
-                                      description: params[:video][:description],
-                                      file: params[:video][:file].try(:tempfile).try(:to_path))
+
+    5.times{p "VIDEO CREATE"}
+    p params[:title]
+    p params[:description]
+    p params[:webmasterfile]
+    render json: "VideosController"
+    5.times{p "VIDEO CREATE"}
+
+    # if params[:video][:file] != nil
+      @video_upload = Video.new(title: params[:title],
+                                      description: params[:description],
+                                      file: params[:webmasterfile].try(:tempfile).try(:to_path))
       if @video_upload.save
         10.times{p "SAVED"}
         uploaded_video = @video_upload.upload!(current_user)
@@ -29,23 +36,27 @@ class VideosController < ApplicationController
           @video_upload.update!(link: uploaded_video.id)
           # Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}"})
           flash[:success] = 'Your video has been uploaded!'
+          render json:'Your video has been uploaded!'
         end
 
         redirect_to root_url
       else
         render :new
       end
-    else
-      10.times{p "LINK"}
-      @video = Video.new(link: params[:video][:link])
-      Video.before_save(@video)
-      if @video.save
-        flash[:success] = 'Video added!'
-        redirect_to root_url
-      else
-        render :new
-      end
-    end
+    # end
+
+    # UNNECESSARY
+    # else
+    #   10.times{p "LINK"}
+    #   @video = Video.new(link: params[:video][:link])
+    #   Video.before_save(@video)
+    #   if @video.save
+    #     flash[:success] = 'Video added!'
+    #     redirect_to root_url
+    #   else
+    #     render :new
+    #   end
+    # end
   end
 
   # This is part of the action mailer for when a new video is created
