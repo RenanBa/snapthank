@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
   def thanks_email(donor, video)
     @donor = donor
     @video = video
-    @url = "https://www.youtube.com/"#{@video.link}
+    @url = "https://www.youtube.com/watch?v=#{video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.name}")
   end
 end

@@ -20,43 +20,37 @@ class VideosController < ApplicationController
     render json: "VideosController"
     5.times{p "VIDEO CREATE"}
 
-    # if params[:video][:file] != nil
-      @video_upload = Video.new(title: params[:title],
+      @donor = Donor.find(params[:donor_id])
+      @video_upload = @donor.videos.create(title: params[:title],
                                       description: params[:description],
                                       file: params[:webmasterfile].try(:tempfile).try(:to_path))
-      if @video_upload.save
-        10.times{p "SAVED"}
-        uploaded_video = @video_upload.upload!(current_user)
+      respond_to do |format|
+        if @video_upload.save
+          10.times{p "SAVED"}
+          uploaded_video = @video_upload.upload!(current_user)
 
-        if uploaded_video.failed?
-          flash[:error] = 'There was an error while uploading your video...'
+          if uploaded_video.failed?
+            flash[:error] = 'There was an error while uploading your video...'
+          else
+            10.times{p "creating link"}
+            10.times{p uploaded_video.id}
+            @video_upload.update!(link: uploaded_video.id)
+            # Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}"})
+
+            UserMailer.thanks_email(@donor, @video_upload).deliver_later
+            format.html { redirect_to(@donor, notice: 'video link was successfully created.') }
+            format.json { render json: @video_upload, status: :created, location: @video_upload }
+            # flash[:success] = 'Your video has been uploaded!'
+            # render json:'Your video has been uploaded!'
+          end
+
+          redirect_to root_url
         else
-          10.times{p "creating link"}
-          10.times{p uploaded_video.id}
-          @video_upload.update!(link: uploaded_video.id)
-          # Video.create({link: "https://www.youtube.com/watch?v=#{uploaded_video.id}"})
-          flash[:success] = 'Your video has been uploaded!'
-          render json:'Your video has been uploaded!'
+          # render :new
+          format.html { render action: 'new' }
+          format.json { render json: @video_upload.errors, status: :unprocessable_entity }
         end
-
-        redirect_to root_url
-      else
-        render :new
       end
-    # end
-
-    # UNNECESSARY
-    # else
-    #   10.times{p "LINK"}
-    #   @video = Video.new(link: params[:video][:link])
-    #   Video.before_save(@video)
-    #   if @video.save
-    #     flash[:success] = 'Video added!'
-    #     redirect_to root_url
-    #   else
-    #     render :new
-    #   end
-    # end
   end
 
   # This is part of the action mailer for when a new video is created
