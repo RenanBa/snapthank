@@ -27,7 +27,7 @@ class MembersController < ApplicationController
 
   def create
     if request_ip(request.ip)
-      @member = Member.new(email: params[:email], name: params[:name])
+      @member = Member.new(name: params[:name])
       if @member.save
         render json: "New member created #{@member.name}"
       else
