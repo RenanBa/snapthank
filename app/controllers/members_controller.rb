@@ -26,6 +26,7 @@ class MembersController < ApplicationController
   # end
 
   def create
+    10.times{p "member create" }
     if request_ip(request.ip)
       @member = Member.new(email: params[:email], name: params[:name])
       if @member.save
