@@ -20,16 +20,17 @@ class VideosController < ApplicationController
         uploaded_video = @video_upload.upload!(current_user)
         if uploaded_video.failed?
           flash[:error] = 'There was an error while uploading your video...'
+          format.html { redirect_to(@donor, notice: "video wasn't uploaded.") }
+          format.json { render json: @video_upload.errors, status: :unprocessable_entity }
         else
           5.times{p "creating link"}
           @video_upload.update!(link: uploaded_video.id)
           UserMailer.thanks_email(@donor, @video_upload).deliver_later
-          format.html { redirect_to(@donor, notice: 'video link was successfully created.') }
+          format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
-        render :json => {succsess: ""}.to_json
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to(@donor, notice: "video wasn't uploaded.") }
         format.json { render json: @video_upload.errors, status: :unprocessable_entity }
       end
     end

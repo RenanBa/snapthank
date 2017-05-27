@@ -15,13 +15,6 @@
         <div class="navbar-header">
         <h2>SnapThank</h2>
         </div>
-          <% if current_user %>
-            <p>Hello, <span><%= current_user.name %></span>!</p>
-            <p><%= link_to 'Log Out', logout_path, method: :delete %></p>
-          <% else %>
-            <p><%= link_to 'Log In', '/auth/google_oauth2' %></p>
-          <% end %>
-        </ul>
       </div>
     </div>
 
