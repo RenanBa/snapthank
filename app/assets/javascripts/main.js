@@ -115,6 +115,7 @@ function onBtnSendClicked(id){
   $.ajax({
       type: 'POST',
       url: 'https://snapthank.herokuapp.com/videos',
+      // url: 'http://localhost:3000/videos',
       data: fd,
       processData: false,
       contentType: false
