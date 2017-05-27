@@ -12,6 +12,7 @@ class DonorsController < ApplicationController
     # if permission()
     10.times{p "Donor show"}
       @donor = Donor.find(params[:id])
+      session[:id_donor] = @donor.id
       @video_upload = Video.new
       # render json: @donor
     # else
