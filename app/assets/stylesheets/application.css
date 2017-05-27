@@ -14,10 +14,3 @@
  *= require_self
  */
 
-
-.nav > li > span {
-  display: block;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #9d9d9d;
-}

@@ -1,56 +1,29 @@
 <script>
-
   function hasGetUserMedia() {
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
 }
-
 if (hasGetUserMedia()) {
   console.log("Good to go!");
 } else {
   alert('getUserMedia() is not supported in your browser');
 }
 </script>
-<h3>Donor's name: <%= @donor.name %></h3>
-<h3>Donor's donation: <%= @donor.donation %></h3>
 
-<video autoplay id="video"></video>
+<p>Donor's name: <%= @donor.name %></p>
+<p>Donor's donation: <%= @donor.donation %></p>
 
-
-<div id="center-content">
+<% if current_user %>
+  <video autoplay id="video"></video>
   <div id="center-buttons">
     <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
     <button class="stop buttons" onclick="onBtnStopClicked()">STOP</button>
     <button class='send buttons' onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
   </div>
+<% else %>
+  <p>You need to <%= link_to 'Log In', '/auth/google_oauth2' %> to record a video</p>
+<% end %>
 
-<div class="container">
-  <h1>Upload video</h1>
-  <% if current_user %>
-    <%= form_for([@donor, @donor.videos.build]) do |f| %>
-      <%= render 'shared/errors', object: @video_upload %>
-
-      <div class="form-group">
-        <%= f.label :file %>
-        <%= f.file_field :file, class: 'form-control', required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', required: true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control', cols: 3 %>
-      </div>
-
-      <%= f.submit 'Upload', class: 'btn btn-primary' %>
-    <% end %>
-  <% else %>
-    <p>Please <%= link_to 'sign in', '/auth/google_oauth2' %>.</p>
-  <% end %>
-</div>
 
 
 
