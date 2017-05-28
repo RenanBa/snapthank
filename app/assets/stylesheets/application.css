@@ -155,11 +155,11 @@
     }
 }*/
 /* Galaxy S5 and iPhone 6 Plus */
-@media only screen and (-webkit-device-pixel-ratio: 3) {
+/*@media only screen and (-webkit-device-pixel-ratio: 3) {
    body {
         background-color: yellow;
     }
-}
+}*/
 
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
@@ -186,5 +186,12 @@
 @media screen and (device-width: 412px) and (device-height: 732px){
    body {
         background-color: orange;
+    }
+}
+
+/* Galaxy */
+@media screen and (device-width: 360px) and (device-height: 640px){
+   body {
+        background-color: yellow;
     }
 }
