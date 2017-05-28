@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def welcome_email(member, donor)
     @member = member
     @donor = donor
-    @url  = "https://snapthank.herokuapp.com/donors/#{@donor.id}"
+    @url  = "https://snapthank.herokuapp.com/donors/#{@donor.id}?key=#{@donor.key}"
     mail(to: @member.email, subject: "#{@donor.name} just made a donation")
   end
 

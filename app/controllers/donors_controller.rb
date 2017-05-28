@@ -1,3 +1,4 @@
+require 'securerandom'
 class DonorsController < ApplicationController
   def index
     if request_ip(request.ip)
@@ -9,15 +10,18 @@ class DonorsController < ApplicationController
   end
 
   def show
-    # if permission()
-    10.times{p "Donor show"}
-      @donor = Donor.find(params[:id])
-      session[:id_donor] = @donor.id
+    @donor = Donor.find(params[:id])
+    if session[:donor_key] == nil || session[:donor_key] == ""
+      if params[:key] != @donor.key
+        render json: "Access not authorized"
+      else
+        session[:donor_key] = @donor.key
+        session[:id_donor] = @donor.id
+        @video_upload = Video.new
+      end
+    elsif session[:donor_key] == @donor.key
       @video_upload = Video.new
-      # render json: @donor
-    # else
-    #   render json: "Access not authorized"
-    # end
+    end
   end
 
   # def new
@@ -30,8 +34,10 @@ class DonorsController < ApplicationController
 
   # Create with mailer action call
   def create
+
     if request_ip(request.ip)
-      @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
+      @donor = Donor.new(email: params[:email], name: params[:name],
+                         donation: params[:donation], key: SecureRandom.hex(32))
       respond_to do |format|
         if @donor.save
           @member = select_member(@donor)

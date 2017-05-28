@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:donor_key] = nil
+    session[:id_donor] = nil
     flash[:success] = "Goodbye!"
     redirect_to root_url
   end

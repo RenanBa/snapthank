@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170524181757) do
     t.string   "name"
     t.string   "email"
     t.string   "donation"
+    t.string   "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
