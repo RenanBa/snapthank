@@ -149,17 +149,6 @@
 
 
 
-/*@media screen and (device-aspect-ratio: 40/71) {
-    body {
-        background-color: lightblue;
-    }
-}*/
-/* Galaxy S5 and iPhone 6 Plus */
-/*@media only screen and (-webkit-device-pixel-ratio: 3) {
-   body {
-        background-color: yellow;
-    }
-}*/
 
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
