@@ -14,41 +14,36 @@
  *= require_self
  */
 
- .user_name{
-
+.user_name{
   float: right;
   margin-top: -60px;
   padding-right: 10px;
 }
 
+#video {
+    background: black;
+    display: block;
+    margin: auto;
+    width: 640px;
+    height: 480px;
+}
 
-.navbar-toggler {
-        z-index: 1;
-    }
-    #video {
-        background: black;
-        display: block;
-        margin: auto;
-        width: 640px;
-        height: 480px;
-    }
+#center-content{
+    height: 100vh;
+    /*background: blue;*/
+    padding: 10% 0;
+    /*vertical-align: middle;*/
+}
 
-    #center-content{
-        height: 100vh;
-        /*background: blue;*/
-        padding: 10% 0;
-        /*vertical-align: middle;*/
-    }
+#center-buttons{
+    /*background: blue;*/
+    margin-top: 15px;
+    margin-left: 35%;
+}
 
-    #center-buttons{
-        /*background: blue;*/
-        margin-top: 15px;
-        margin-left: 35%;
-    }
-
-    .buttons{
-        margin-left: 5%;
-    }
+.buttons{
+    margin-left: 5%;
+}
 
 .rec {
 
@@ -149,6 +144,17 @@
 
 
 
+/*@media screen and (device-aspect-ratio: 40/71) {
+    body {
+        background-color: lightblue;
+    }
+}*/
+/* Galaxy S5 and iPhone 6 Plus */
+/*@media only screen and (-webkit-device-pixel-ratio: 3) {
+   body {
+        background-color: pink;
+    }
+}*/
 
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
@@ -171,6 +177,13 @@
     }
 }
 
+/* iPhone 6 Pro */
+@media screen and (device-width: 414px) and (device-height: 736px){
+     body {
+        background-color: pink;
+    }
+}
+
 /* Nexus */
 @media screen and (device-width: 412px) and (device-height: 732px){
    body {
@@ -178,9 +191,21 @@
     }
 }
 
-/* Galaxy */
+/* Galaxy portrait*/
 @media screen and (device-width: 360px) and (device-height: 640px){
    body {
         background-color: yellow;
+    }
+    #video{
+      display: none;
+    }
+}
+/* Galaxy landscape*/
+@media screen and (device-width: 640px) and (device-height: 360px){
+   body {
+        background-color: yellow;
+    }
+      #video{
+      display: block;
     }
 }
