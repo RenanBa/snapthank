@@ -16,7 +16,7 @@
 
 .user_name{
   float: right;
-  margin-top: -60px;
+  margin-top: -20px;
   padding-right: 10px;
 }
 
@@ -204,12 +204,43 @@
 @media screen and (device-width: 640px) and (device-height: 360px){
    body {
         background-color: yellow;
+        height: 100vh;
     }
-      #video{
+    .user_name{
+     /* position: absolute;
+      margin-right: 200%;*/
+    }
+    .donor-container{
+      /*min-height: 100vh;*/
+    }
+    .donor-info{
+      position: absolute;
+      background-color: white;
+    }
+    .donor-name{
+      margin: 50px 0 0 20px;
+      font-size: 30px;
+    }
+    .donor-donation{
+      margin: 50px 0 0 420px;
+      font-size: 30px;
+    }
+    #video{
       float: right;
       min-width: 100%;
       min-height: 100%;
       padding: 0;
       display: block;
+    }
+    #center-buttons{
+      position: absolute;
+      margin: 50px 0 0 850px;
+      width: 100px;
+      height: 100vh;
+      /*background-color: white;*/
+    }
+    .buttons{
+      margin-top: 60px;
+      padding: 20px;
     }
 }

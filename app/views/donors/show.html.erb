@@ -12,12 +12,12 @@ if (hasGetUserMedia()) {
 
 <div class="donor-container">
 <% if current_user %>
-  <div class="user_name">
-    <p>Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
+ <!--  <div class="user_name">
+    <p>Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %></p>
     <p></p>
-  </div>
-  <p>Donor's name: <%= @donor.name %></p>
-  <p>Donor's donation: <%= @donor.donation %></p>
+  </div> -->
+  <p class="donor-name donor-info">Donor's name: <%= @donor.name %></p>
+  <p class="donor-donation donor-info">Donation: <%= @donor.donation %></p>
 
   <video autoplay id="video"></video>
   <div id="center-buttons">
