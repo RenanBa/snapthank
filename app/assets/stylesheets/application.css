@@ -14,27 +14,36 @@
  *= require_self
  */
 
+body {
+  overflow: hidden;
+}
+
+.donor_container{
+  width: 100%;
+}
+
 .user_name{
-  float: right;
+  /*float: right;*/
   margin-top: 20px;
   padding-right: 10px;
 }
 
 #video {
-    background: black;
-    display: block;
-    margin: auto;
-    width: 640px;
-    height: 480px;
+  /*position: absolute;*/
+  background: black;
+  display: block;
+  margin: auto;
+  width: 900px;
+  height: 550px;
 }
 
-#center-content{
+/*#center-content{
     height: 100vh;
-    /*background: blue;*/
+    background: blue;
     padding: 10% 0;
-    /*vertical-align: middle;*/
+    /*vertical-align: middle;
 }
-
+*/
 #center-buttons{
     /*background: blue;*/
     margin-top: 15px;
@@ -209,31 +218,23 @@
     .user_name{
       font-size: 20px;
       padding: 0;
-      margin-top: -40px;
+      margin-top: 0px;
       float: left;
-     /* position: absolute;
-      margin-right: 200%;*/
-    }
-    .donor-container{
-      /*min-height: 100vh;*/
     }
     .donor-name{
-      margin: 50px 0 0 20px;
+      margin: 0 0 0 20px;
       font-size: 25px;
     }
     #video{
-      float: right;
-      min-width: 100%;
-      min-height: 100%;
-      padding: 0;
-      display: block;
+      width: 940px;
+      height: 450px;
+
     }
     #center-buttons{
       position: absolute;
-      margin: 15px 0 0 850px;
+      margin: -450px 0 0 820px;
       width: 100px;
       height: 100vh;
-      /*background-color: white;*/
     }
     .buttons{
       margin-top: 60px;
