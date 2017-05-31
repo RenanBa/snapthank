@@ -12,14 +12,17 @@
 
 <div class="donor-container">
 <% if current_user %>
-  <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
+  <div class="donor-info">
+    <p class="donor-name">Donor's name: <%= @donor.name %></p>
+    <p class="donor-donation">Donation: <%= @donor.donation %></p>
+  </div>
   <video autoplay id="video"></video>
   <div id="center-buttons">
     <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
     <button class="stop buttons" onclick="onBtnStopClicked()">STOP</button>
     <button class='send buttons' onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
   </div>
-  <p class="donor-name">Donor's name: <%= @donor.name %> | Donation: <%= @donor.donation %></p>
+  <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
 <% else %>
   <p>You need to <%= link_to 'Log In', '/auth/google_oauth2' %> to record a video</p>
 <% end %>

@@ -217,13 +217,18 @@ body {
     }
     .user_name{
       font-size: 20px;
-      padding: 0;
+      text-align: center;
       margin-top: 0px;
-      float: left;
+      /*float: left;*/
     }
-    .donor-name{
+    .donor-info{
+      position: absolute;
       margin: 0 0 0 20px;
-      font-size: 25px;
+      font-size: 27px;
+      color: #222222;
+    }
+    .donor-name, .donor-donation{
+      background-color: #C6C6C6;
     }
     #video{
       width: 940px;
