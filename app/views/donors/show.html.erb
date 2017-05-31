@@ -18,9 +18,9 @@
   </div>
   <video autoplay id="video"></video>
   <div id="center-buttons">
-    <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
-    <button class="stop buttons" onclick="onBtnStopClicked()">STOP</button>
-    <button class='send buttons' onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+    <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
+    <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+    <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
   </div>
   <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
 <% else %>

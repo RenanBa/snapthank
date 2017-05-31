@@ -56,12 +56,18 @@ function onBtnRecordClicked (){
     alert('MediaRecorder not supported on your browser, use Firefox 30 or Chrome 49 instead.');
   }else {
     navigator.getUserMedia(constraints, startRecording, errorCallback);
+    $("#stop").removeClass( "disable-buttons" ).addClass( "buttons" );
+    $("#rec").removeClass( "buttons" ).addClass( "disable-buttons" );
+    $("#send").removeClass( "buttons" ).addClass( "disable-buttons" );
   }
 }
 
 function onBtnStopClicked(){
   mediaRecorder.stop();
   video.controls = true;
+  $("#stop").removeClass( "buttons" ).addClass( "disable-buttons" );
+  $("#rec").removeClass( "disable-buttons" ).addClass( "buttons" );
+  $("#send").removeClass( "disable-buttons" ).addClass( "buttons" );
 }
 
 function onBtnSendClicked(id){
