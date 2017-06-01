@@ -178,31 +178,220 @@ body {
     }
 }
 
-  /* iPhone 5 */
+  /* iPhone 5 portrait */
   @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
      body {
-        background-color: green;
+        background-color: gray;
+    }
+}
+  /* iPhone 5 landscape */
+  @media screen and (device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2){
+     body {
+        background-color: gray;
+    }
+    .user_name{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .donor-info{
+      font-size: 27px;
+      color: #222222;
+      background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
+    }
+    #video{
+      width: 940px;
+      height: 450px;
+
+    }
+    #center-buttons{
+      position: absolute;
+      margin: -450px 0 0 820px;
+      width: 100px;
+      height: 100vh;
+    }
+    .buttons, .disable-buttons{
+      margin-top: 60px;
+      padding: 20px;
     }
 }
 
-  /* iPhone 6 */
+  /* iPhone 6 portrait*/
   @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2){
      body {
         background-color: green;
     }
 }
+  /* iPhone 6 landscape*/
+  @media screen and (device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2){
+     body {
+        background-color: green;
+    }
+    .user_name{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .donor-info{
+      font-size: 27px;
+      color: #222222;
+      background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
+    }
+    #video{
+      width: 940px;
+      height: 450px;
 
-/* iPhone 6 Pro */
+    }
+    #center-buttons{
+      position: absolute;
+      margin: -450px 0 0 820px;
+      width: 100px;
+      height: 100vh;
+    }
+    .buttons, .disable-buttons{
+      margin-top: 60px;
+      padding: 20px;
+    }
+}
+
+/* iPhone 6 Plus portrait */
 @media screen and (device-width: 414px) and (device-height: 736px){
      body {
         background-color: pink;
     }
+    .user_name{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .donor-info{
+      font-size: 27px;
+      color: #222222;
+      background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
+    }
+    #video{
+      width: 940px;
+      height: 450px;
+
+    }
+    #center-buttons{
+      position: absolute;
+      margin: -450px 0 0 820px;
+      width: 100px;
+      height: 100vh;
+    }
+    .buttons, .disable-buttons{
+      margin-top: 60px;
+      padding: 20px;
+    }
+}
+/* iPhone 6 Plus landscape */
+@media screen and (device-width: 736px) and (device-height: 414px){
+     body {
+        background-color: pink;
+    }
+    .user_name{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .donor-info{
+      font-size: 27px;
+      color: #222222;
+      background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
+    }
+    #video{
+      width: 940px;
+      height: 450px;
+
+    }
+    #center-buttons{
+      position: absolute;
+      margin: -450px 0 0 820px;
+      width: 100px;
+      height: 100vh;
+    }
+    .buttons, .disable-buttons{
+      margin-top: 60px;
+      padding: 20px;
+    }
 }
 
-/* Nexus */
+/* Nexus portrait */
 @media screen and (device-width: 412px) and (device-height: 732px){
    body {
         background-color: orange;
+    }
+}
+/* Nexus landscape */
+@media screen and (device-width: 732px) and (device-height: 412px){
+   body {
+        background-color: orange;
+    }
+       .user_name{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 5px;
+    }
+    .donor-info{
+      font-size: 27px;
+      color: #222222;
+      background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
+    }
+    #video{
+      width: 940px;
+      height: 450px;
+
+    }
+    #center-buttons{
+      position: absolute;
+      margin: -450px 0 0 820px;
+      width: 100px;
+      height: 100vh;
+    }
+    .buttons, .disable-buttons{
+      margin-top: 60px;
+      padding: 20px;
     }
 }
 
