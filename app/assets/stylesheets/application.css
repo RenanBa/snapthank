@@ -275,39 +275,6 @@ body {
      body {
         background-color: pink;
     }
-    .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      width: 940px;
-      height: 450px;
-
-    }
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
 }
 /* iPhone 6 Plus landscape */
 @media screen and (device-width: 736px) and (device-height: 414px){

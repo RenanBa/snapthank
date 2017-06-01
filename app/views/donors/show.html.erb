@@ -27,5 +27,11 @@
   <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
 <% else %>
   <p>You need to <%= link_to 'Log In', '/auth/google_oauth2' %> to record a video</p>
+  <h3>Note:</h3>
+  <ul>
+    <li><p>This application is only supported on Chrome browser. <a href="https://www.google.com/chrome/browser/features.html?brand=CHBD&gclid=CjwKEAjw07nJBRDG_tvshefHhWQSJABRcE-Z1qtDn5A7_1hN4Q0T8muwdxMWMxUc_Iep-uIIz9L5JxoCNJLw_wcB&dclid=CLLOtKfOm9QCFQx-YgodbBcJdw">Download Chrome</a></p></li>
+    <li><p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p></li>
+    <li><p><a href="https://www.youtube.com/create_channel">Click here to create a YouTube channel.</a></p></li>
+  </ul>
 <% end %>
 </div>
