@@ -62,7 +62,6 @@ body {
 }
 
 .rec {
-
    border-top: 1px solid #f79797;
    background: #361f07;
    background: -webkit-gradient(linear, left top, left bottom, from(#ff0000), to(#361f07));
@@ -225,16 +224,20 @@ body {
     .user_name{
       font-size: 20px;
       text-align: center;
-      margin-top: 0px;
+      margin-top: 5px;
     }
     .donor-info{
-      position: absolute;
-      margin: 0 0 0 20px;
       font-size: 27px;
       color: #222222;
-    }
-    .donor-name, .donor-donation{
       background-color: #C6C6C6;
+      position: absolute;
+      margin-top: -0px;
+    }
+    .donor-name{
+      margin-left: 350px;
+    }
+    .donation{
+      margin-left: 15px
     }
     #video{
       width: 940px;
@@ -247,7 +250,7 @@ body {
       width: 100px;
       height: 100vh;
     }
-    .buttons{
+    .buttons, .disable-buttons{
       margin-top: 60px;
       padding: 20px;
     }
