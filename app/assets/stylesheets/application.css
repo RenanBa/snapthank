@@ -39,13 +39,6 @@ body {
   height: 550px;
 }
 
-/*#center-content{
-    height: 100vh;
-    background: blue;
-    padding: 10% 0;
-    /*vertical-align: middle;
-}
-*/
 #center-buttons{
     /*background: blue;*/
     margin-top: 15px;
@@ -53,12 +46,11 @@ body {
 }
 
 .disable-buttons{
-  opacity: 0.65;
-  cursor: not-allowed;
   margin-left: 5%;
+  display: none;
 }
 .buttons{
-    margin-left: 5%;
+  margin-left: 5%;
 }
 
 .rec {
@@ -158,19 +150,6 @@ body {
    }
 
 
-
-/*@media screen and (device-aspect-ratio: 40/71) {
-    body {
-        background-color: lightblue;
-    }
-}*/
-/* Galaxy S5 and iPhone 6 Plus */
-/*@media only screen and (-webkit-device-pixel-ratio: 3) {
-   body {
-        background-color: pink;
-    }
-}*/
-
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
    body {
@@ -222,6 +201,12 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
+     .stop{
+      margin-top: 180px;
+    }
+     .send{
+      margin-top: 180px;
+    }
 }
 
   /* iPhone 6 portrait*/
@@ -267,6 +252,12 @@ body {
     .buttons, .disable-buttons{
       margin-top: 60px;
       padding: 20px;
+    }
+     .stop{
+      margin-top: 180px;
+    }
+     .send{
+      margin-top: 180px;
     }
 }
 
@@ -314,6 +305,12 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
+     .stop{
+      margin-top: 180px;
+    }
+     .send{
+      margin-top: 180px;
+    }
 }
 
 /* Nexus portrait */
@@ -360,6 +357,12 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
+     .stop{
+      margin-top: 180px;
+    }
+     .send{
+      margin-top: 180px;
+    }
 }
 
 /* Galaxy portrait*/
@@ -368,7 +371,8 @@ body {
         background-color: yellow;
     }
     #video{
-      /*display: none;*/
+      width: 450px;
+      height: 940px;
     }
 }
 /* Galaxy landscape*/
@@ -398,7 +402,6 @@ body {
     #video{
       width: 940px;
       height: 450px;
-
     }
     #center-buttons{
       position: absolute;
@@ -409,5 +412,11 @@ body {
     .buttons, .disable-buttons{
       margin-top: 60px;
       padding: 20px;
+    }
+    .stop{
+      margin-top: 180px;
+    }
+     .send{
+      margin-top: 180px;
     }
 }
