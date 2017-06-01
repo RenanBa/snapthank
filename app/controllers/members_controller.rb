@@ -32,7 +32,7 @@ class MembersController < ApplicationController
       if @member.save
         render json: "New member created #{@member.name}"
       else
-        render json: "Error."
+        render json: @member.errors.full_messages
       end
     else
       render json: "Access not authorized"

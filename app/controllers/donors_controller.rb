@@ -49,8 +49,7 @@ class DonorsController < ApplicationController
           format.json { render json: @donor, status: :created, location: @donor }
         end
       else
-        # format.html { render action: 'show' }
-        format.json { render json: @donor.errors, status: :unprocessable_entity }
+        render json: @donor.errors.full_messages
       end
     else
       render json: "Access not authorized"
