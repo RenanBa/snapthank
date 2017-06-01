@@ -149,6 +149,12 @@ body {
    background: #ff0000;
    }
 
+.display-mobile {
+  display: none;
+}
+.display-desktop {
+  display: block;
+}
 
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
@@ -169,6 +175,12 @@ body {
     .SignInGoogle{
       width: 700px;
       height: 150px;
+    }
+     .display-mobile {
+      display: block;
+    }
+    .display-desktop {
+      display: none;
     }
 }
   /* iPhone 5 landscape */
@@ -235,6 +247,12 @@ body {
     .SignInGoogle{
       width: 700px;
       height: 150px;
+    }
+     .display-mobile {
+      display: block;
+    }
+    .display-desktop {
+      display: none;
     }
 }
   /* iPhone 6 landscape*/
@@ -303,6 +321,12 @@ body {
       width: 700px;
       height: 150px;
     }
+     .display-mobile {
+      display: block;
+    }
+    .display-desktop {
+      display: none;
+    }
 }
 /* iPhone 6 Plus landscape */
 @media screen and (device-width: 736px) and (device-height: 414px){
@@ -369,6 +393,12 @@ body {
     .SignInGoogle{
       width: 700px;
       height: 150px;
+    }
+     .display-mobile {
+      display: block;
+    }
+    .display-desktop {
+      display: none;
     }
 }
 /* Nexus landscape */
@@ -437,6 +467,12 @@ body {
     .SignInGoogle{
       width: 700px;
       height: 150px;
+    }
+    .display-mobile {
+      display: block;
+    }
+    .display-desktop {
+      display: none;
     }
   /*  #video{
       margin-top: 80px;
