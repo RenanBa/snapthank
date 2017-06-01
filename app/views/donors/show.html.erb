@@ -12,10 +12,12 @@
 
 <div class="donor-container">
 <% if current_user %>
-  <div class="donor-info">
-    <p class="donor-name">Donor's name: <%= @donor.name %></p>
-    <p class="donor-donation">Donation: <%= @donor.donation %></p>
-  </div>
+  <!-- <div class="donor-info"> -->
+    <p class="donation donor-info">Donation: <%= @donor.donation %></p>
+    <p class="donor-name donor-info">Donor's name: <%= @donor.name %></p>
+
+  <!-- </div> -->
+
   <video autoplay id="video"></video>
   <div id="center-buttons">
     <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
