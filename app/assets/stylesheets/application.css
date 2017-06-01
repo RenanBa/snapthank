@@ -373,7 +373,7 @@ body {
     #video{
       margin-top: 80px;
       width: 900px;
-      height: 1200px;
+      height: 1150px;
     }
     .donor-info{
       font-size: 40px;
@@ -392,7 +392,15 @@ body {
      .user_name{
       font-size: 35px;
       text-align: center;
-      margin-top: 50px;
+      margin-top: 80px;
+    }
+    #center-buttons{
+      width: 100vh;
+      height: 100px;
+    }
+    .buttons, .disable-buttons{
+      font-size: 40px;
+      padding: 20px;
     }
 }
 /* Galaxy landscape*/
