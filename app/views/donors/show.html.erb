@@ -1,39 +1,29 @@
 <script>
   function hasGetUserMedia() {
-  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
-}
-
-if (hasGetUserMedia()) {
-  console.log("Good to go!");
-} else {
-  alert('getUserMedia() is not supported in your browser');
-}
+  }
+  if (hasGetUserMedia()) {
+    console.log("Good to go!");
+  } else {
+    alert('getUserMedia() is not supported in your browser');
+  }
 </script>
 
-
-<video autoplay id="video"></video>
-
-<div id="center-content">
-  <div id="center-buttons">
-    <button class="rec buttons" onclick="onBtnRecordClicked()">REC</button>
-    <button class="stop buttons" onclick="onBtnStopClicked()">STOP</button>
-    <button class="send buttons">SEND</button>
+<div class="donor-container">
+<% if current_user %>
+  <div class="donor-info">
+    <p class="donor-name">Donor's name: <%= @donor.name %></p>
+    <p class="donor-donation">Donation: <%= @donor.donation %></p>
   </div>
-
-  <h1>SnapThank</h1>
-
-<h3>Donor's name: <%= @donor.name %></h3>
-<h3>Donor's donation: <%= @donor.donation %></h3>
-
-
-<%= form_for([@donor, @donor.videos.build]) do |f| %>
-  <p>
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <video autoplay id="video"></video>
+  <div id="center-buttons">
+    <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
+    <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+    <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+  </div>
+  <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
+<% else %>
+  <p>You need to <%= link_to 'Log In', '/auth/google_oauth2' %> to record a video</p>
 <% end %>
 </div>

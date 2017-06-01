@@ -4,9 +4,9 @@ module ApplicationHelper
     return false
   end
 
-  # def permission(member)
-  #   (0..ENV["PERMISSIONS"].split().length).each do |i|
-  #     member == ENV["PERMISSIONS"].split()[i] ? (return true) : (return false)
-  #   end
-  # end
+  def permission(member)
+    (0..ENV["PERMISSIONS"].split().length).each do |i|
+      member == ENV["PERMISSIONS"].split()[i] ? (return true) : (return false)
+    end
+  end
 end

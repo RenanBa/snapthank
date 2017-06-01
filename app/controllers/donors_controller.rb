@@ -1,20 +1,31 @@
+require 'securerandom'
 class DonorsController < ApplicationController
-  # def index
-    # if permission()
-  #     @donors = Donor.all
-  #     render json: @donors
-  #   else
-  #     render json: "Access not authorized"
-  #   end
-  # end
+  def index
+    if request_ip(request.ip)
+      @donors = Donor.all
+      render json: @donors
+    else
+      render json: "Access not authorized"
+    end
+  end
 
   def show
-    # if permission()
-      @donor = Donor.find(params[:id])
-      # render json: @donor
-    # else
-    #   render json: "Access not authorized"
-    # end
+    @donor = Donor.find_by_id(params[:id])
+    if @donor.nil?
+      render 'error'
+    else
+      if session[:donor_key] == nil || session[:donor_key] == ""
+        if params[:key] != @donor.key
+          render json: "Access not authorized"
+        else
+          session[:donor_key] = @donor.key
+          session[:id_donor] = @donor.id
+          @video_upload = Video.new
+        end
+      elsif session[:donor_key] == @donor.key
+        @video_upload = Video.new
+      end
+    end
   end
 
   # def new
@@ -25,23 +36,11 @@ class DonorsController < ApplicationController
   #   @donor = Donor.find(params[:id])
   # end
 
-  # def create
-  #   if request_ip(request.ip)
-  #     @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
-  #     if @donor.save
-  #       render json: "New donor created #{@donor.name}"
-  #     else
-  #       render json: "Error."
-  #     end
-  #   else
-  #     render json: "Access not authorized"
-  #   end
-  # end
-
   # Create with mailer action call
   def create
     if request_ip(request.ip)
-      @donor = Donor.new(email: params[:email], name: params[:name], donation: params[:donation])
+      @donor = Donor.new(email: params[:email], name: params[:name],
+                         donation: params[:donation], key: SecureRandom.hex(32))
       respond_to do |format|
         if @donor.save
           @member = select_member(@donor)
@@ -60,7 +59,7 @@ class DonorsController < ApplicationController
 
 
   # def update
-    # if permission()
+    # if request_ip(request.ip)
   #     @donor = Donor.find_by(email: params[:find_email])
   #     if @donor.update(email: params[:new_email], name: params[:name])
   #       render json: "donor update name: #{@donor.name}. Email: #{@donor.email}"
@@ -72,15 +71,15 @@ class DonorsController < ApplicationController
   #   end
   # end
 
-  # def destroy
-    # if permission()
-  #     @donor = Donor.find(params[:id])
-  #     @donor.destroy
-  #     render json: "donor deleted."
-  #   else
-  #     render json: "Access not authorized"
-  #   end
-  # end
+  def destroy
+    if request_ip(request.ip)
+      @donor = Donor.find(params[:id])
+      @donor.destroy
+      render json: "donor deleted."
+    else
+      render json: "Access not authorized"
+    end
+  end
 
   # private
   #   def donor_params

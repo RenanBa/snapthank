@@ -1,42 +1,45 @@
 class VideosController < ApplicationController
-  #  def create
-  #   if request_ip(request.ip)
-  #     @donor = Donor.find(params[:donor_id])
-  #     @video = @donor.videos.create(video_params)
-  #     if @video.save
-  #     # redirect_to article_path(@donor)
-  #     render :json => {:message => "The link #{@video.link} to video was created for the donor: #{@donor.name}"}.to_json
-  #     else
-  #       render :json => {:message => "Video not created!"}
-  #     end
-  #   else
-  #     render json: "Access not authorized"
-  #   end
+
+  # def index
+  #   # @videos = Video.order('created_at DESC')
+  # end
+
+  # def new
+  #   # @video_upload = Video.new
   # end
 
   def create
-    if request_ip(request.ip)
-      @donor = Donor.find(params[:donor_id])
-      @video = @donor.videos.create(video_params)
-      respond_to do |format|
-        if @video.save
-          # Request the userMailer to send a welcome email after save
-          UserMailer.thanks_email(@donor, @video).deliver_later
-
-          format.html { redirect_to(@donor, notice: 'video link was successfully created.') }
-          format.json { render json: @video, status: :created, location: @video }
+    5.times{p "VIDEO CREATE"}
+    @donor = Donor.find(params[:donor_id])
+    @video_upload = @donor.videos.create(title: params[:title],
+                                    description: params[:description],
+                                    file: params[:webmasterfile].try(:tempfile).try(:to_path))
+    respond_to do |format|
+      if @video_upload.save
+        5.times{p "SAVED"}
+        uploaded_video = @video_upload.upload!(current_user)
+        if uploaded_video.failed?
+          flash[:error] = 'There was an error while uploading your video...'
+          format.html { redirect_to(@donor, notice: "video wasn't uploaded.") }
+          format.json { render json: @video_upload.errors, status: :unprocessable_entity }
         else
-          format.html { render action: 'new' }
-          format.json { render json: @video.errors, status: :unprocessable_entity }
+          5.times{p "creating link"}
+          @video_upload.update!(link: uploaded_video.id)
+          UserMailer.thanks_email(@donor, @video_upload).deliver_later
+          format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
+          format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
+        session[:donor_key] = nil
+        session[:id_donor] = nil
+        @donor.destroy
+      else
+        format.html { redirect_to(@donor, notice: "video wasn't uploaded.") }
+        format.json { render json: @video_upload.errors, status: :unprocessable_entity }
       end
-    else
-      render json: "Access not authorized"
     end
   end
-
-  private
-    def video_params
-      params.require(:video).permit(:link)
-    end
+  # private
+  #   def video_params
+  #     params.require(:video).permit(:link)
+  #   end
 end

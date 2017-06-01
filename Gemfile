@@ -5,8 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# google api
-gem "omniauth-google-oauth2", "~> 0.2.1"
+
+# Gems to use YouTube API V3 and upload videos
+gem 'yt', '~> 0.13.7'
+gem 'bootstrap-sass', '~> 3.3.0.1'
+gem 'autoprefixer-rails'
+gem 'omniauth-google-oauth2'
+gem 'active_type', '0.3.1'
+
+
 
 gem 'dotenv-rails', groups: [:development, :test]
 # gem 'dotenv-rails', require: 'dotenv/rails-now'
