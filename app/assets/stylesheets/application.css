@@ -153,20 +153,28 @@ body {
 /* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
 @media only screen and (-webkit-device-pixel-ratio: 2) {
    body {
-        background-color: lightblue;
+        /*background-color: lightblue;*/
     }
 }
 
   /* iPhone 5 portrait */
   @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
      body {
-        background-color: gray;
+        /*background-color: gray;*/
+    }
+    .note{
+      font-size: 50px;
+      padding: 15px;
+    }
+    .SignInGoogle{
+      width: 700px;
+      height: 150px;
     }
 }
   /* iPhone 5 landscape */
   @media screen and (device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2){
      body {
-        background-color: gray;
+        /*background-color: gray;*/
     }
     .user_name{
       font-size: 20px;
@@ -189,7 +197,6 @@ body {
     #video{
       width: 940px;
       height: 450px;
-
     }
     #center-buttons{
       position: absolute;
@@ -201,24 +208,39 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
-     .stop{
+    .stop{
       margin-top: 180px;
     }
-     .send{
+    .send{
       margin-top: 180px;
     }
-}
+}   .note{
+      font-size: 25px;
+      padding: 10px;
+    }
+    .flash{
+      font-size: 35px;
+      padding: 10px;
+    }
 
   /* iPhone 6 portrait*/
   @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2){
      body {
-        background-color: green;
+        /*background-color: green;*/
+    }
+    .note{
+      font-size: 50px;
+      padding: 15px;
+    }
+    .SignInGoogle{
+      width: 700px;
+      height: 150px;
     }
 }
   /* iPhone 6 landscape*/
   @media screen and (device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2){
      body {
-        background-color: green;
+        /*background-color: green;*/
     }
     .user_name{
       font-size: 20px;
@@ -259,18 +281,33 @@ body {
      .send{
       margin-top: 180px;
     }
-}
+}   .note{
+      font-size: 25px;
+      padding: 10px;
+    }
+    .flash{
+      font-size: 35px;
+      padding: 10px;
+    }
 
 /* iPhone 6 Plus portrait */
 @media screen and (device-width: 414px) and (device-height: 736px){
      body {
-        background-color: pink;
+        /*background-color: pink;*/
+    }
+    .note{
+      font-size: 50px;
+      padding: 15px;
+    }
+    .SignInGoogle{
+      width: 700px;
+      height: 150px;
     }
 }
 /* iPhone 6 Plus landscape */
 @media screen and (device-width: 736px) and (device-height: 414px){
      body {
-        background-color: pink;
+        /*background-color: pink;*/
     }
     .user_name{
       font-size: 20px;
@@ -311,20 +348,35 @@ body {
      .send{
       margin-top: 180px;
     }
-}
+}   .note{
+      font-size: 25px;
+      padding: 10px;
+    }
+    .flash{
+      font-size: 35px;
+      padding: 10px;
+    }
 
 /* Nexus portrait */
 @media screen and (device-width: 412px) and (device-height: 732px){
    body {
-        background-color: orange;
+        /*background-color: orange;*/
+    }
+    .note{
+      font-size: 50px;
+      padding: 15px;
+    }
+    .SignInGoogle{
+      width: 700px;
+      height: 150px;
     }
 }
 /* Nexus landscape */
 @media screen and (device-width: 732px) and (device-height: 412px){
    body {
-        background-color: orange;
+        /*background-color: orange;*/
     }
-       .user_name{
+    .user_name{
       font-size: 20px;
       text-align: center;
       margin-top: 5px;
@@ -362,15 +414,31 @@ body {
     }
      .send{
       margin-top: 180px;
+    }
+    .note{
+      font-size: 25px;
+      padding: 10px;
+    }
+    .flash{
+      font-size: 35px;
+      padding: 10px;
     }
 }
 
 /* Galaxy portrait*/
 @media screen and (device-width: 360px) and (device-height: 640px){
    body {
-        background-color: yellow;
+        /*background-color: yellow;*/
     }
-    #video{
+    .note{
+      font-size: 50px;
+      padding: 15px;
+    }
+    .SignInGoogle{
+      width: 700px;
+      height: 150px;
+    }
+  /*  #video{
       margin-top: 80px;
       width: 900px;
       height: 1150px;
@@ -384,12 +452,11 @@ body {
     }
     .donor-name{
       margin: -60px 0 0 32px;
-      /*margin-top: -60px;*/
     }
     .donation{
       margin: -19px 0 0 32px
     }
-     .user_name{
+    .user_name{
       font-size: 35px;
       text-align: center;
       margin-top: 80px;
@@ -402,11 +469,19 @@ body {
       font-size: 40px;
       padding: 20px;
     }
+    .rec{
+      margin-left: -180px;
+    }
+    .stop{
+      margin-left: -180px;
+    }
+    .send{
+    }*/
 }
 /* Galaxy landscape*/
 @media screen and (device-width: 640px) and (device-height: 360px){
    body {
-        background-color: yellow;
+        /*background-color: yellow;*/
         height: 100vh;
     }
     .user_name{
@@ -446,5 +521,13 @@ body {
     }
      .send{
       margin-top: 180px;
+    }
+    .note{
+      font-size: 25px;
+      padding: 10px;
+    }
+    .flash{
+      font-size: 35px;
+      padding: 10px;
     }
 }
