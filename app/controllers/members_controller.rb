@@ -9,12 +9,13 @@ class MembersController < ApplicationController
   end
 
   def show
-    if request_ip(request.ip)
-      @member = Member.find(params[:id])
-      render json: @member
-    else
-      render json: "Access not authorized"
-    end
+    render json: request.ip
+    # if request_ip(request.ip)
+    #   @member = Member.find(params[:id])
+    #   render json: @member
+    # else
+    #   render json: "Access not authorized"
+    # end
   end
 
   # def new
