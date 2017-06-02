@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     @video_upload = @donor.videos.create(title: params[:title],
                                     description: params[:description],
                                     file: params[:webmasterfile].try(:tempfile).try(:to_path))
-    respond_to do |format|
+    # respond_to do |format|
       if @video_upload.save
         5.times{p "SAVED"}
         uploaded_video = @video_upload.upload!(current_user)
@@ -25,9 +25,11 @@ class VideosController < ApplicationController
         else
           5.times{p "creating link"}
           @video_upload.update!(link: uploaded_video.id)
-          UserMailer.thanks_email(@donor, @video_upload).deliver_later
-          format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
-          format.json { render json: @video_upload, status: :created, location: @video_upload }
+          respond_to do |format|
+            UserMailer.thanks_email(@donor, @video_upload).deliver_later
+            format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
+            format.json { render json: @video_upload, status: :created, location: @video_upload }
+          end
           session[:donor_key] = nil
           session[:id_donor] = nil
           @donor.destroy
@@ -36,7 +38,7 @@ class VideosController < ApplicationController
         format.html { redirect_to(@donor, notice: "video wasn't uploaded.") }
         format.json { render json: @video_upload.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
   # private
   #   def video_params
