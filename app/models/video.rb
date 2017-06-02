@@ -2,8 +2,8 @@ class Video < ApplicationRecord
   belongs_to :donor
   validates :file, presence: true
   def upload!(user)
+    5.times{ p "Model video_upload"}
     account = Yt::Account.new access_token: user.token
-    5.times{ p "video model upload YT"}
-    account.upload_video self.file, title: self.title, description: self.description
+    account.upload_video self.file, title: self.title, description: self.description, privacy_status: "unlisted"
   end
 end
