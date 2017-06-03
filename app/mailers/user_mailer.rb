@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
    default from: ENV['gmail_username']
 
   def welcome_email(member, donor)
+    5.times{p "welcome email"}
     @member = member
     @donor = donor
     @url  = "https://snapthank.herokuapp.com/donors/#{@donor.id}?key=#{@donor.key}"
