@@ -44,7 +44,7 @@ class DonorsController < ApplicationController
       if @donor.save
         respond_to do |format|
           @member = select_member(@donor)
-          UserMailer.welcome_email(@member, @donor).deliver_later(wait: 5.minutes)
+          UserMailer.welcome_email(@member, @donor).deliver_later
           # format.html { redirect_to(@donor, notice: 'donor was successfully created.') }
           format.json { render json: @donor, status: :created, location: @donor }
         end
