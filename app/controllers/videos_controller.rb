@@ -30,7 +30,7 @@ class VideosController < ApplicationController
       end
       session[:donor_key] = nil
       session[:id_donor] = nil
-      # @donor.destroy
+      @donor.destroy
     else
       redirect_to(@donor, notice: "video wasn't uploaded.")
     end
