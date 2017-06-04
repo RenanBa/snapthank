@@ -23,14 +23,14 @@ class VideosController < ApplicationController
         5.times{p "creating link"}
         @video_upload.update!(link: uploaded_video.id)
         respond_to do |format|
-          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: 5.minutes)
-          format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
+          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: 3.minutes)
+          format.html { redirect_to(root_url, notice: 'Sent Successfully!') }
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
       end
       session[:donor_key] = nil
       session[:id_donor] = nil
-      @donor.destroy
+      # @donor.destroy
     else
       redirect_to(@donor, notice: "video wasn't uploaded.")
     end
