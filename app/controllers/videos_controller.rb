@@ -16,7 +16,7 @@ class VideosController < ApplicationController
                                     file: params[:webmasterfile].try(:tempfile).try(:to_path))
     if @video_upload.save
       5.times{p "SAVED"}
-      # uploaded_video = @video_upload.upload!(current_user)
+      uploaded_video = @video_upload.upload!(current_user)
       if uploaded_video.failed?
         flash[:error] = 'There was an error while uploading your video...'
       else

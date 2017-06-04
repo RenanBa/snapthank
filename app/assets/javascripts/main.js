@@ -72,7 +72,7 @@ function onBtnStopClicked(){
 
 function onBtnSendClicked(id){
   console.log("AJAX!");
-  $(".display-none").addClass("display-block");
+  $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
   $("#uploading").removeClass("display-none").addClass("display-block");

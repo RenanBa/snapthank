@@ -204,6 +204,12 @@ body {
      #video {
       margin: 0 0px 0 10px;
     }
+      #landscape{
+      display: block;
+      margin: 100px 0 0 270px;
+      width: 600px;
+      height: 600px;
+    }
 }
   /* iPhone 5 landscape */
   @media screen and (device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2){
@@ -288,6 +294,12 @@ body {
     }
      #video {
       margin: 0 0px 0 10px;
+    }
+      #landscape{
+      display: block;
+      margin: 100px 0 0 270px;
+      width: 600px;
+      height: 600px;
     }
 }
   /* iPhone 6 landscape*/
@@ -374,6 +386,12 @@ body {
      #video {
       margin: 0 0px 0 10px;
     }
+      #landscape{
+      display: block;
+      margin: 100px 0 0 270px;
+      width: 600px;
+      height: 600px;
+    }
 }
 /* iPhone 6 Plus landscape */
 @media screen and (device-width: 736px) and (device-height: 414px){
@@ -458,6 +476,12 @@ body {
     }
      #video {
       margin: 0 0px 0 10px;
+    }
+      #landscape{
+      display: block;
+      margin: 100px 0 0 270px;
+      width: 600px;
+      height: 600px;
     }
 }
 /* Nexus landscape */
@@ -545,6 +569,12 @@ body {
     #video {
       margin: 0 0px 0 10px;
     }
+     #landscape{
+      display: block;
+      margin: 100px 0 0 270px;
+      width: 600px;
+      height: 600px;
+    }
 
 }
 /* Galaxy landscape*/
@@ -613,4 +643,6 @@ body {
       font-size: 35px;
       padding: 10px;
     }
+
+
 }

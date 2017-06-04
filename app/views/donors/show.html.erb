@@ -24,10 +24,12 @@
       <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
     </div>
   </div>
+
   <p class="user_name">
     <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
   </p>
-
+ <iframe  class="display-none" src="https://raw.githubusercontent.com/arscan/pleaserotate.js/master/demo.gif" frameBorder="0"></iframe>
+ <img id="landscape" class="display-block" src="landscapapp.png">
 <% else %>
   <div class="note">
     <p>It is necessary to login to proceed</p>
