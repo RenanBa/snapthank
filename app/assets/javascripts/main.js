@@ -72,7 +72,10 @@ function onBtnStopClicked(){
 
 function onBtnSendClicked(id){
   console.log("AJAX!");
-
+  $(".display-none").addClass("display-block");
+  $("#center-buttons").addClass("display-none");
+  $(".video-container").addClass("display-none");
+  $("#uploading").removeClass("display-none").addClass("display-block");
   var rand =  Math.floor((Math.random() * 10000000));
   var fd = new FormData();
 
