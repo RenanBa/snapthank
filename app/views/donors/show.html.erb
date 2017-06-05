@@ -13,10 +13,10 @@
 
 <% if current_user %>
   <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
-  <p class="sending display-none">Sending...</p>
+  <p class="sending display-none">Uploading...</p>
   <div class="video-container">
     <p class="donation donor-info">Donation: <%= @donor.donation %></p>
-    <p class="donor-name donor-info">Donor's name: <%= @donor.name %></p>
+    <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
     <video autoplay id="video"></video>
     <div id="center-buttons">
       <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>

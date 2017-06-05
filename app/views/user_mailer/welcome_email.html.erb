@@ -1,23 +1,26 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body> -->
-
-  <h1>Hello <%= @member.name %></h1>
-
-  <p><%= @donor.name %> just donated <%= @donor.donation %>!</p>
-  <p>To send a video to <%= @donor.name %> just follow this link: <%= @url %></p>
-
-<!--     <h1>Welcome to example.com, <%#= @member.name %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your member email is: <%#= @member.email %>.<br>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%#= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p> -->
-<!--   </body>
-</html> -->
+  <body>
+    <h2>Hey <%= @member.name %>! Your turn to send some gratitude!</h2>
+    </br>
+    <p><%= @donor.first_name %> <%= @donor.last_name %> just donated <%= @donor.donation %> via
+    <a href="https://impact.newstorycharity.org/campaigns/#{@donor.campaign_slug}"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
+    <p>See their donation <a href="https://manage.newstorycharity.org/donations/#{@donor.secure_id}">here.</a></p>
+    </br>
+    </br>
+    <p>Send <%= @donor.first_name %> a short gratitude video: <a href="https://snapthank.herokuapp.com/donors/#{@donor.id}?key=#{@donor.key}">Record Video.</a></p>
+    </br>
+    </br>
+    <p>PS: If you cannot send a video to this donor because of travel or for any reason, no worries, please forward this email to Matthew so he can re-assign :)</p>
+    </br>
+    <p>Gratitude Video Guidelines:</p>
+    <p>- Keep it short. 30secs-1min is fine.</p>
+    <p>- Start by waving and saying their name ("Hi Susan…")</p>
+    <p>- You can be mobile, really anywhere. No problem.</p>
+    <p>- This video should not look or feel "produced" or "perfect." Just be yourself.</p>
+    <p>- <a href="https://www.youtube.com/watch?v=q9ioBVyjJgw"> See here for an example.</a></p>
+  </body>
+</html>
