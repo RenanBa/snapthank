@@ -14,9 +14,7 @@ class UserMailer < ApplicationMailer
     @video = video
     @url = "https://www.youtube.com/watch?v=#{video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.name}")
-    5.times{p @donor}
-    #  session[:donor_key] = nil
-    # session[:id_donor] = nil
-    # @donor.destroy
+    5.times{p "Send email"}
+    destroy_donor(@donor)
   end
 end
