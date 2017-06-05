@@ -1,4 +1,14 @@
 console.log("main.js");
+
+
+$(function() {
+  console.log("Scroll down function");
+  var body = $('body');
+  var height = body[0].scrollHeight;
+  body.scrollTop(height);
+});
+
+
 // HD constraints
 var constraints = {
   audio: true,
