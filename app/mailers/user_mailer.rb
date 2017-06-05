@@ -10,11 +10,10 @@ class UserMailer < ApplicationMailer
   end
 
   def thanks_email(donor, video)
+    5.times{p "thanks email"}
     @donor = donor
     @video = video
     @url = "https://www.youtube.com/watch?v=#{video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.name}")
-    5.times{p "Send email"}
-    Donor.destroy_donor(@donor)
   end
 end
