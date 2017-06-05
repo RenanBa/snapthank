@@ -44,7 +44,7 @@ class DonorsController < ApplicationController
                           last_name: params[:last_name],
                           email: params[:email],
                           donation: params[:donation],
-                          campaign: params[:campaign],
+                          campaign_name: params[:campaign],
                           affiliate: params[:affiliate],
                           secure_id: params[:secure_id],
                           campaign_slug: params[:campaign_slug],
