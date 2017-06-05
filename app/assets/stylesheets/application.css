@@ -201,13 +201,13 @@ body {
       width: 700px;
       height: 150px;
     }
-     #video {
+    #video {
       margin: 0 0px 0 10px;
     }
-      #landscape{
+     #landscape{
       display: block;
-      margin: 100px 0 0 270px;
-      width: 600px;
+      margin: 100px 0 0 120px;
+      width: 800px;
       height: 600px;
     }
 }
@@ -217,7 +217,7 @@ body {
         /*background-color: gray;*/
         overflow: hidden;
     }
-    .user_name{
+  .user_name{
       font-size: 20px;
       text-align: center;
       margin-top: 5px;
@@ -239,9 +239,9 @@ body {
       display: block;
       margin: auto;
       width: 940px;
-      height: 450px;
+      height: 500px;
     }
-     #uploading {
+    #uploading {
       position: absolute;
       margin: 75px 0 0 330px;
       width: 300px;
@@ -266,10 +266,10 @@ body {
     .stop{
       margin-top: 180px;
     }
-    .send{
+     .send{
       margin-top: 180px;
     }
-}   .note{
+    .note{
       font-size: 25px;
       padding: 10px;
     }
@@ -277,7 +277,20 @@ body {
       font-size: 35px;
       padding: 10px;
     }
+     #landscape{
+      display: none;
+    }
 
+    .alert-notice{
+      text-align: center;
+    }
+
+
+/*Error message*/
+  .message{
+    text-align: center;
+  }
+}
   /* iPhone 6 portrait*/
   @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2){
      body {
@@ -292,13 +305,13 @@ body {
       width: 700px;
       height: 150px;
     }
-     #video {
+    #video {
       margin: 0 0px 0 10px;
     }
-      #landscape{
+     #landscape{
       display: block;
-      margin: 100px 0 0 270px;
-      width: 600px;
+      margin: 100px 0 0 120px;
+      width: 800px;
       height: 600px;
     }
 }
@@ -308,7 +321,7 @@ body {
         /*background-color: green;*/
         overflow: hidden;
     }
-    .user_name{
+     .user_name{
       font-size: 20px;
       text-align: center;
       margin-top: 5px;
@@ -327,12 +340,12 @@ body {
       margin-left: 15px
     }
     #video{
-      width: 940px;
-      height: 450px;
       display: block;
       margin: auto;
+      width: 940px;
+      height: 500px;
     }
-     #uploading {
+    #uploading {
       position: absolute;
       margin: 75px 0 0 330px;
       width: 300px;
@@ -354,13 +367,13 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
-     .stop{
+    .stop{
       margin-top: 180px;
     }
      .send{
       margin-top: 180px;
     }
-}   .note{
+    .note{
       font-size: 25px;
       padding: 10px;
     }
@@ -368,14 +381,27 @@ body {
       font-size: 35px;
       padding: 10px;
     }
+     #landscape{
+      display: none;
+    }
 
+    .alert-notice{
+      text-align: center;
+    }
+
+
+/*Error message*/
+  .message{
+    text-align: center;
+  }
+}
 /* iPhone 6 Plus portrait */
 @media screen and (device-width: 414px) and (device-height: 736px){
      body {
         /*background-color: pink;*/
         overflow: hidden;
     }
-    .note{
+   .note{
       font-size: 50px;
       padding: 15px;
     }
@@ -383,13 +409,13 @@ body {
       width: 700px;
       height: 150px;
     }
-     #video {
+    #video {
       margin: 0 0px 0 10px;
     }
-      #landscape{
+     #landscape{
       display: block;
-      margin: 100px 0 0 270px;
-      width: 600px;
+      margin: 100px 0 0 120px;
+      width: 800px;
       height: 600px;
     }
 }
@@ -418,12 +444,12 @@ body {
       margin-left: 15px
     }
     #video{
-      width: 940px;
-      height: 450px;
       display: block;
       margin: auto;
+      width: 940px;
+      height: 500px;
     }
-     #uploading {
+    #uploading {
       position: absolute;
       margin: 75px 0 0 330px;
       width: 300px;
@@ -445,13 +471,13 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
-     .stop{
+    .stop{
       margin-top: 180px;
     }
      .send{
       margin-top: 180px;
     }
-}   .note{
+    .note{
       font-size: 25px;
       padding: 10px;
     }
@@ -459,6 +485,20 @@ body {
       font-size: 35px;
       padding: 10px;
     }
+     #landscape{
+      display: none;
+    }
+
+    .alert-notice{
+      text-align: center;
+    }
+
+
+/*Error message*/
+  .message{
+    text-align: center;
+  }
+}
 
 /* Nexus portrait */
 @media screen and (device-width: 412px) and (device-height: 732px){
@@ -474,13 +514,13 @@ body {
       width: 700px;
       height: 150px;
     }
-     #video {
+    #video {
       margin: 0 0px 0 10px;
     }
-      #landscape{
+     #landscape{
       display: block;
-      margin: 100px 0 0 270px;
-      width: 600px;
+      margin: 100px 0 0 120px;
+      width: 800px;
       height: 600px;
     }
 }
@@ -490,7 +530,7 @@ body {
         /*background-color: orange;*/
         overflow: hidden;
     }
-    .user_name{
+   .user_name{
       font-size: 20px;
       text-align: center;
       margin-top: 5px;
@@ -509,12 +549,12 @@ body {
       margin-left: 15px
     }
     #video{
-      width: 940px;
-      height: 450px;
       display: block;
       margin: auto;
+      width: 940px;
+      height: 500px;
     }
-     #uploading {
+    #uploading {
       position: absolute;
       margin: 75px 0 0 330px;
       width: 300px;
@@ -536,7 +576,7 @@ body {
       margin-top: 60px;
       padding: 20px;
     }
-     .stop{
+    .stop{
       margin-top: 180px;
     }
      .send{
@@ -550,6 +590,19 @@ body {
       font-size: 35px;
       padding: 10px;
     }
+     #landscape{
+      display: none;
+    }
+
+    .alert-notice{
+      text-align: center;
+    }
+
+
+/*Error message*/
+  .message{
+    text-align: center;
+  }
 }
 
 /* Galaxy portrait*/
@@ -646,5 +699,15 @@ body {
      #landscape{
       display: none;
     }
+
+    .alert-notice{
+      text-align: center;
+    }
+
+
+/*Error message*/
+  .message{
+    text-align: center;
+  }
 
 }
