@@ -21,14 +21,13 @@
     <div id="center-buttons">
       <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
       <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-      <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+      <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>", "<%= @donor.key %>")'>SEND</button>
     </div>
   </div>
 
   <p class="user_name">
     <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
   </p>
- <iframe  class="display-none" src="https://raw.githubusercontent.com/arscan/pleaserotate.js/master/demo.gif" frameBorder="0"></iframe>
  <img id="landscape" class="display-none" src="/landscapapp.png">
 <% else %>
   <div class="note">
@@ -48,4 +47,5 @@
     </ul>
   </div>
 <% end %>
+<div class="error-message"></div>
 

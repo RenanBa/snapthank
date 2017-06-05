@@ -70,8 +70,9 @@ function onBtnStopClicked(){
   $("#send").removeClass( "disable-buttons" ).addClass( "buttons" );
 }
 
-function onBtnSendClicked(id){
+function onBtnSendClicked(id, key){
   console.log("AJAX!");
+  console.log(key);
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
@@ -84,15 +85,35 @@ function onBtnSendClicked(id){
   fd.append("description", "SnapThank");
   fd.append("donor_id", id);
 
+  // $.ajax({
+  //     type: 'POST',
+  //     // url: 'https://snapthank.herokuapp.com/videos',
+  //     url: 'http://localhost:3000/videos',
+  //     data: fd,
+  //     processData: false,
+  //     contentType: false
+  // }).done(function(data) {
+  //       console.log("DONE");
+  //        console.log(data);
+  // });
   $.ajax({
-      type: 'POST',
-      url: 'https://snapthank.herokuapp.com/videos',
-      // url: 'http://localhost:3000/videos',
-      data: fd,
-      processData: false,
-      contentType: false
-  }).done(function(data) {
-         console.log(data);
+    type: 'POST',
+    // url: 'https://snapthank.herokuapp.com/videos',
+    url: 'http://localhost:3000/videos',
+    data: fd,
+    processData: false,
+    contentType: false,
+    error: function(data){
+      uploadError()
+    }
   });
+
+  var uploadError = function(){
+    console.log("Error");
+    // alert("<p><%= link_to 'Log Out', logout_path, method: :delete %></p>");
+    $(".sending").removeClass("display-block").addClass("display-none");
+    $("#uploading").removeClass("display-block").addClass("display-none");
+    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>")
+  };
 }
 
