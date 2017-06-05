@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170524181757) do
     t.string   "affiliate"
     t.string   "secure_id"
     t.string   "campaign_slug"
+    t.string   "key"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
