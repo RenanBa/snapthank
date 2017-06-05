@@ -9,6 +9,7 @@ class CreateDonors < ActiveRecord::Migration[5.0]
       t.string :affiliate
       t.string :secure_id
       t.string :campaign_slug
+      t.string :key
 
       t.timestamps
     end
