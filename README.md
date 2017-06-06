@@ -1,6 +1,6 @@
 # README
 
-- YouTube API V3
+- YouTube API V3 (YT gem)
 - Google omniauth
 - Rails Mailer
 - MediaRecorder
