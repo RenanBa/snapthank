@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
     5.times{p "thanks email"}
     @donor = donor
     @video = video
-    @url = "https://www.youtube.com/watch?v=#{video.link}"
+    @url = "https://www.youtube.com/watch?v=#{@video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.first_name}")
   end
 end
