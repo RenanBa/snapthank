@@ -1,8 +1,9 @@
 # README
 
-YouTube API V3
-Google omniauth
-Rails Mailer
+- YouTube API V3
+- Google omniauth
+- Rails Mailer
+- MediaRecorder
 
 #How the app works:
 
