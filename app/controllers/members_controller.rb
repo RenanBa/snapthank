@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def index
-    if request_ip(request.ip)
+    if request_ip(request.ip) || current_admin
       @members = Member.all
       render json: @members
     else
@@ -30,7 +30,12 @@ class MembersController < ApplicationController
     if request_ip(request.ip)
       @member = Member.new(email: params[:email], name: params[:name])
       if @member.save
-        render json: "New member created #{@member.name}"
+        respond_to do |format|
+          format.html { redirect_to '/admins/show' }
+          format.json { render json: @member, status: :created, location: @member }
+        end
+        # render json: "New member created #{@member.name}"
+        # redirect_to '/admins/show'
       else
         render json: @member.errors.full_messages
       end

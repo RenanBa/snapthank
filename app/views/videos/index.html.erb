@@ -12,3 +12,10 @@
     </div>
   <% end %>
 </div>
+
+<% if current_admin %>
+  <%= link_to "Logout", admin_logout_path %>
+<% else %>
+  <p>Log in as <%= link_to "Admin", admin_login_path %></p>
+<% end %>
+
