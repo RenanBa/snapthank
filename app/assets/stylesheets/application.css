@@ -712,3 +712,14 @@ body {
   }
 
 }
+
+
+
+
+/*admin*/
+.admin{
+  float: right;
+}
+.row-info-1{
+  background-color: #d8d8d8;
+}

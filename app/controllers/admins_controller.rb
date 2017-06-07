@@ -4,11 +4,9 @@ class AdminsController < ApplicationController
   def login
     if logining(params[:admin_name], params[:password])
       session[:admin_id] = SecureRandom.hex(32)
-      @members = Member.all
-      5.times{p "logged in"}
-      render 'show'
+      redirect_to '/admins/show'
     else
-      @error = "Email or password incorrect!"
+      @error = "Name or password incorrect!"
       render "/sessions/new"
     end
   end
@@ -19,14 +17,14 @@ class AdminsController < ApplicationController
   end
 
   def index
-    10.times{ p "Index"}
+    redirect_to root_url
   end
 
   def show
-    if session[:admin_id] == nil || session[:admin_id] == ""
-      redirect_to root_url
-    else
+    if current_admin
       @members = Member.all
+    else
+      redirect_to root_url
     end
   end
 
