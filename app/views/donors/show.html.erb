@@ -10,33 +10,43 @@
   }
 </script>
 
-<div class="donor-container">
-  <% if current_user %>
+
+<% if current_user %>
+  <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
+  <p class="sending display-none">Uploading...</p>
+  <div class="video-container">
     <p class="donation donor-info">Donation: <%= @donor.donation %></p>
-    <p class="donor-name donor-info">Donor's name: <%= @donor.name %></p>
+    <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
     <video autoplay id="video"></video>
     <div id="center-buttons">
       <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
       <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
       <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
     </div>
-    <p class="user_name">Welcome, <span><%= current_user.name %></span>! | <%= link_to 'Log Out', logout_path, method: :delete %></p>
-  <% else %>
-    <div class="note">
-      <p>It is necessary to login to proceed</p>
-      <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
-      <h3>Note:</h3>
-      <ul>
-        <li>
-          <p>This application is only supported on Chrome browser. <%= link_to "Download Chrome", "https://www.google.com/chrome/browser/"%></p>
-        </li>
-        <li>
-          <p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p>
-        </li>
-        <li>
-          <p>Go to <%= link_to "YouTube", "https://www.youtube.com/", target: :_blank %> to create a channel.</p>
-        </li>
-      </ul>
-    </div>
-  <% end %>
-</div>
+  </div>
+
+  <p class="user_name">
+    <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
+  </p>
+ <img id="landscape" class="display-none" src="/landscapapp.png">
+<% else %>
+  <div class="note">
+    <p>It is necessary to login to proceed</p>
+    <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
+    <h3>Note:</h3>
+    <ul>
+      <li>
+        <p>This application is only supported on Chrome browser. <%= link_to "Download Chrome", "https://www.google.com/chrome/browser/"%></p>
+      </li>
+      <li>
+        <p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p>
+      </li>
+      <li>
+        <p>Go to <%= link_to "YouTube", "https://www.youtube.com/", target: :_blank %> to create a channel.</p>
+      </li>
+    </ul>
+  </div>
+<% end %>
+<div class="error-message"></div>
+<center></center>
+

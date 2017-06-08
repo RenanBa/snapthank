@@ -1,4 +1,5 @@
 console.log("main.js");
+
 // HD constraints
 var constraints = {
   audio: true,
@@ -73,6 +74,11 @@ function onBtnStopClicked(){
 function onBtnSendClicked(id){
   console.log("AJAX!");
 
+  $(".sending").addClass("display-block");
+  $("#center-buttons").addClass("display-none");
+  $(".video-container").addClass("display-none");
+  $("#uploading").removeClass("display-none").addClass("display-block");
+
   var rand =  Math.floor((Math.random() * 10000000));
   var fd = new FormData();
 
@@ -82,14 +88,22 @@ function onBtnSendClicked(id){
   fd.append("donor_id", id);
 
   $.ajax({
-      type: 'POST',
-      url: 'https://snapthank.herokuapp.com/videos',
-      // url: 'http://localhost:3000/videos',
-      data: fd,
-      processData: false,
-      contentType: false
-  }).done(function(data) {
-         console.log(data);
+    type: 'POST',
+    url: 'https://snapthank.herokuapp.com/videos',
+    // url: 'http://localhost:3000/videos',
+    data: fd,
+    processData: false,
+    contentType: false,
+    error: function(data){
+      uploadError()
+    }
   });
+
+  var uploadError = function(){
+    console.log("Error");
+    $(".sending").removeClass("display-block").addClass("display-none");
+    $("#uploading").removeClass("display-block").addClass("display-none");
+    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>")
+  };
 }
 

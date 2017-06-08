@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
     flash[:success] = "Goodbye!"
     redirect_to root_url
   end
+
+  def refresh
+    session[:user_id] = nil
+    redirect_to(:controller => 'donors', :action => 'show', id: session[:id_donor])
+  end
 end

@@ -1,8 +1,8 @@
 class VideosController < ApplicationController
 
-  # def index
-  #   # @videos = Video.order('created_at DESC')
-  # end
+  def index
+    @video = Video.new
+  end
 
   # def new
   #   # @video_upload = Video.new
@@ -19,18 +19,16 @@ class VideosController < ApplicationController
       uploaded_video = @video_upload.upload!(current_user)
       if uploaded_video.failed?
         flash[:error] = 'There was an error while uploading your video...'
+        redirect_to root_url
       else
         5.times{p "creating link"}
         @video_upload.update!(link: uploaded_video.id)
         respond_to do |format|
-          UserMailer.thanks_email(@donor, @video_upload).deliver_later
-          format.html { redirect_to(root_url, notice: 'video link was successfully created and uploaded.') }
+          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: 1.minutes)
+          format.html { redirect_to(root_url, notice: 'Uploaded Successfully!') }
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
       end
-      session[:donor_key] = nil
-      session[:id_donor] = nil
-      @donor.destroy
     else
       redirect_to(@donor, notice: "video wasn't uploaded.")
     end

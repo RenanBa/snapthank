@@ -1,7 +1,16 @@
-Hello <%= @member.name %>
+Hey <%= @member.name %>! Your turn to send some gratitude!
 ===============================================
 
-<%= @donor.name %> just donated <%= @donor.donation %> dollars!
+<%= @donor.first_name %> <%= @donor.last_name %> just donated <%= @donor.donation %> via <%= @donor.campaign_name %>: "https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"part of <%= @donor.affiliate %>.
+    See their donation: "https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>"
 
-To send a video to <%= @donor.name %> just follow this link: <%= @url %>
+  Send <%= @donor.first_name %> a short gratitude video: "https://snapthank.herokuapp.com/donors/<%= @donor.id %>?key=<%= @donor.key %>".
 
+PS: If you cannot send a video to this donor because of travel or for any reason, no worries, please forward this email to Matthew so he can re-assign :)
+
+   Gratitude Video Guidelines:
+   - Keep it short. 30secs-1min is fine.
+   - Start by waving and saying their name ("Hi Susan…")
+   - You can be mobile, really anywhere. No problem.
+   - This video should not look or feel "produced" or "perfect." Just be yourself.
+   - "https://www.youtube.com/watch?v=q9ioBVyjJgw"> See here for an example.

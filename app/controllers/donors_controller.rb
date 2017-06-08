@@ -39,13 +39,21 @@ class DonorsController < ApplicationController
   # Create with mailer action call
   def create
     if request_ip(request.ip)
-      @donor = Donor.new(email: params[:email], name: params[:name],
-                         donation: params[:donation], key: SecureRandom.hex(32))
+      @donor = Donor.new(
+                          first_name: params[:first_name],
+                          last_name: params[:last_name],
+                          email: params[:email],
+                          donation: params[:donation],
+                          campaign_name: params[:campaign],
+                          affiliate: params[:affiliate],
+                          secure_id: params[:secure_id],
+                          campaign_slug: params[:campaign_slug],
+                          key: SecureRandom.hex(32)
+                        )
       if @donor.save
         respond_to do |format|
           @member = select_member(@donor)
           UserMailer.welcome_email(@member, @donor).deliver_later
-          # format.html { redirect_to(@donor, notice: 'donor was successfully created.') }
           format.json { render json: @donor, status: :created, location: @donor }
         end
       else

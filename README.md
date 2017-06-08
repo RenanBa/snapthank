@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- YouTube API V3 (YT gem)
+- Google omniauth
+- Rails Mailer
+- MediaRecorder
 
-Things you may want to cover:
+## How the app works:
 
-* Ruby version
+1. When a new donor is created, a member receives an email with a link to access the app.
+2. The app asks the member to login into his Google account.
+3. After login, the video recorder is displayed.
+4. Member record a video and send.
+5. The video is uploaded to the member youtube channel.
+6. An email is sent to the specific donor with a message and the link to youtube video.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

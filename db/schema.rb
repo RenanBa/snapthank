@@ -16,12 +16,17 @@ ActiveRecord::Schema.define(version: 20170524181757) do
   enable_extension "plpgsql"
 
   create_table "donors", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "donation"
+    t.string   "campaign_name"
+    t.string   "affiliate"
+    t.string   "secure_id"
+    t.string   "campaign_slug"
     t.string   "key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "members", force: :cascade do |t|
