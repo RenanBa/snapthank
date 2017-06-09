@@ -13,6 +13,7 @@ class UserMailer < ApplicationMailer
   def thanks_email(donor, video)
     5.times{p "thanks email"}
     Donor.destroy_donor(donor, video)
+    yield
     5.times{p "THANKS EMAIL AGAIN!!!"}
     @donor = donor
     @video = video
