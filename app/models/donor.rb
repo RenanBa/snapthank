@@ -6,7 +6,6 @@ class Donor < ApplicationRecord
     5.times{p "Destroy Donor"}
     5.times{p "Video"}
     10.times{p Time.new }
-    sleep 4
     10.times{p Time.new }
     5.times{p "Back to destroy_donor!!!"}
   end
