@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
-   default from: ENV['gmail_username'],
-           reply_to: 'renancontactme@gmail.com '
+   default from: 'team@newstorycharity.org'#,
+           #reply_to: 'renancontactme@gmail.com'  ENV['gmail_username']
 
   def welcome_email(member, donor)
     5.times{p "welcome email"}
