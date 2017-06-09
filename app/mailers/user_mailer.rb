@@ -16,6 +16,6 @@ class UserMailer < ApplicationMailer
     @video = video
     @url = "https://www.youtube.com/watch?v=#{@video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.first_name}")
-    # Donor.destroy_donor(donor, video)
+    Donor.destroy_donor(donor)
   end
 end
