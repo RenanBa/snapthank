@@ -8,11 +8,4 @@ module ApplicationHelper
     return true if ENV["ADMIN_PASSWORD"] == password && ENV["ADMIN_NAME"] == name
     return false
   end
-
-  def delete_donor(donor)
-    5.times{p "In the delete_donor helper method"}
-    5.times{p "Donor object =>" + donor}
-    yield
-    10.times{p "Back to delete_donor!!!"}
-  end
 end
