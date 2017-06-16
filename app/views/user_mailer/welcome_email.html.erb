@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h2>Hey <%= @member.name %>! Your turn to send some gratitude!</h2>
+    <h3>Hey <%= @member.name %>! Your turn to send some gratitude!</h3>
     </br>
     <p><%= @donor.first_name %> <%= @donor.last_name %> just donated <%= @donor.donation %> via
     <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
