@@ -47,7 +47,7 @@ function startRecording(stream) {
     blob = new Blob(chunks, {type: "video/webm"});
     chunks = [];
     var videoURL = window.URL.createObjectURL(blob);
-    video.src = videoURL
+    video.src = videoURL;
   };
 }
 
@@ -74,6 +74,8 @@ function onBtnStopClicked(){
 function onBtnSendClicked(id){
   console.log("AJAX!");
 
+  video.src = null;
+
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
@@ -89,12 +91,13 @@ function onBtnSendClicked(id){
 
   $.ajax({
     type: 'POST',
-    url: 'https://snapthank.herokuapp.com/videos',
-    // url: 'http://localhost:3000/videos',
+    // url: 'https://snapthank.herokuapp.com/videos',
+    url: 'http://localhost:3000/videos',
     data: fd,
     processData: false,
     contentType: false,
     error: function(data){
+      console.log(data);
       uploadError()
     }
   });
