@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
-   default from: ENV['gmail_username']
+   default from: ENV['gmail_username'],
+           reply_to: ENV['REPLY_TO']
 
   def welcome_email(member, donor)
     5.times{p "welcome email"}
@@ -13,7 +14,8 @@ class UserMailer < ApplicationMailer
     5.times{p "thanks email"}
     @donor = donor
     @video = video
-    @url = "https://www.youtube.com/watch?v=#{video.link}"
+    @url = "https://www.youtube.com/watch?v=#{@video.link}"
     mail(to: @donor.email, subject: "Thanks for your donation #{@donor.first_name}")
+    Donor.destroy_donor(donor)
   end
 end

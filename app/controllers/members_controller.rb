@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def index
-    if request_ip(request.ip)
+    if request_ip(request.ip) || current_admin
       @members = Member.all
       render json: @members
     else
@@ -9,7 +9,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    if request_ip(request.ip)
+    if request_ip(request.ip) || current_admin
       @member = Member.find(params[:id])
       render json: @member
     else
@@ -27,10 +27,13 @@ class MembersController < ApplicationController
 
   def create
     10.times{p "member create" }
-    if request_ip(request.ip)
+    if request_ip(request.ip) || current_admin
       @member = Member.new(email: params[:email], name: params[:name])
       if @member.save
-        render json: "New member created #{@member.name}"
+        respond_to do |format|
+          format.html { redirect_to '/admins/show' }
+          format.json { render json: @member, status: :created, location: @member }
+        end
       else
         render json: @member.errors.full_messages
       end
@@ -40,23 +43,37 @@ class MembersController < ApplicationController
   end
 
   def update
-    if request_ip(request.ip)
-      @member = Member.find_by(email: params[:find_email])
-      if @member.update(email: params[:new_email], name: params[:name])
-        render json: "Member update name: #{@member.name}. Email: #{@member.email}"
+    if request_ip(request.ip) || current_admin
+      @member = Member.find_by(id: params[:id])
+      if @member.update(name: params[:member][:name], email: params[:member][:email])
+        respond_to do |format|
+          format.html { redirect_to '/admins/show' }
+          format.json { render json: "Member update name: #{@member.name}. Email: #{@member.email}" }
+        end
       else
-        render json: "Error to update"
+        render json: @member.errors
       end
     else
       render json: "Access not authorized"
     end
   end
 
+  def edit
+    if request_ip(request.ip) || current_admin
+      @member = Member.find(params[:id])
+    else
+      render json: "Access not authorized"
+    end
+  end
+
   def destroy
-    if request_ip(request.ip)
+    if request_ip(request.ip) || current_admin
       @member = Member.find(params[:id])
       @member.destroy
-      render json: "Member deleted."
+      respond_to do |format|
+        format.html { redirect_to '/admins/show' }
+        format.json { render json: "Member deleted." }
+      end
     else
       render json: "Access not authorized"
     end

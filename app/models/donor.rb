@@ -3,9 +3,6 @@ class Donor < ApplicationRecord
   validates :first_name, :email, :donation, presence: true
 
   def self.destroy_donor(donor)
-    5.times{p "Destroying donor"}
-    session[:donor_key] = nil
-    session[:id_donor] = nil
-    donor.destroy
+    Donor.find(donor).destroy
   end
 end

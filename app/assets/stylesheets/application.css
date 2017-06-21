@@ -20,6 +20,9 @@ body {
   /*overflow: hidden;*/
 }
 
+.donorDiv {
+  float: left;
+}
 
 .SignInGoogle{
   width: 350px;
@@ -38,7 +41,7 @@ body {
 
 #video {
   background: #212020;
-  margin: 0 0px 0 270px;
+  margin: 0 0px 0 50px;
   width: 900px;
   height: 550px;
 }
@@ -711,4 +714,15 @@ body {
     text-align: center;
   }
 
+}
+
+
+
+
+/*admin*/
+.admin{
+  float: right;
+}
+.row-info-1{
+  background-color: #d8d8d8;
 }

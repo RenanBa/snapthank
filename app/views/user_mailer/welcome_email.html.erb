@@ -4,19 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h2>Hey <%= @member.name %>! Your turn to send some gratitude!</h2>
+    <h3>Hey <%= @member.name %>! Your turn to send some gratitude!</h3>
     </br>
     <p><%= @donor.first_name %> <%= @donor.last_name %> just donated <%= @donor.donation %> via
     <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
     <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a></p>
-    </br>
-    </br>
-    <p>Send <%= @donor.first_name %> a short gratitude video: <a href="<%= @url %>">Record Video.</a></p>
-
-    </br>
-    </br>
+    <p><strong>Send <%= @donor.first_name %> a short gratitude video: <a href="<%= @url %>">Record Video.</a></strong></p>
+    <br/>
+    <hr>
     <p>PS: If you cannot send a video to this donor because of travel or for any reason, no worries, please forward this email to Matthew so he can re-assign :)</p>
-    </br>
     <p>Gratitude Video Guidelines:</p>
     <p>- Keep it short. 30secs-1min is fine.</p>
     <p>- Start by waving and saying their name ("Hi Susan…")</p>
