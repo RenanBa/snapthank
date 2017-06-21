@@ -72,9 +72,6 @@ function onBtnStopClicked(){
 }
 
 function onBtnSendClicked(id){
-  console.log("AJAX!");
-
-  video.src = null;
 
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
@@ -91,14 +88,18 @@ function onBtnSendClicked(id){
 
   $.ajax({
     type: 'POST',
-    url: 'https://snapthank.herokuapp.com/videos',
-    // url: 'http://localhost:3000/videos',
+    // url: 'https://snapthank.herokuapp.com/videos',
+    url: 'http://localhost:3000/videos',
     data: fd,
     processData: false,
     contentType: false,
+    success: function(data){
+      video.src = "";
+      console.log("SUCCESS");
+    },
     error: function(data){
       console.log(data);
-      uploadError()
+      uploadError();
     }
   });
 
@@ -106,7 +107,7 @@ function onBtnSendClicked(id){
     console.log("Error");
     $(".sending").removeClass("display-block").addClass("display-none");
     $("#uploading").removeClass("display-block").addClass("display-none");
-    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>")
+    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>");
   };
 }
 
