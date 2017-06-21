@@ -29,9 +29,9 @@ class VideosController < ApplicationController
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
       end
-    session[:user_id] = nil
-    session[:donor_key] = nil
-    session[:id_donor] = nil
+      session[:user_id] = nil
+      session[:donor_key] = nil
+      session[:id_donor] = nil
     else
       redirect_to(@donor, notice: "video wasn't uploaded.")
     end
