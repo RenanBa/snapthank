@@ -73,6 +73,7 @@ function onBtnStopClicked(){
 
 function onBtnSendClicked(id){
 
+  $(".campaigns").addClass("display-none")
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
@@ -98,6 +99,7 @@ function onBtnSendClicked(id){
       console.log("SUCCESS");
     },
     error: function(data){
+      video.src = "";
       console.log(data);
       uploadError();
     }
