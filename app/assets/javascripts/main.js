@@ -86,7 +86,7 @@ function onBtnSendClicked(id){
   fd.append("title", "video_"+rand+".webm");
   fd.append("description", "SnapThank");
   fd.append("donor_id", id);
-
+  video.src = "";
   $.ajax({
     type: 'POST',
     url: 'https://snapthank.herokuapp.com/videos',
@@ -94,8 +94,8 @@ function onBtnSendClicked(id){
     data: fd,
     processData: false,
     contentType: false,
-    success: function(data){
-      video.src = "";
+    success: function(data){video.src = "";
+
       console.log("SUCCESS");
     },
     error: function(data){
