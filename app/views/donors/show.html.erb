@@ -31,7 +31,18 @@
       <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
     </div>
   </div>
-
+  <!-- MOBILE FORM -->
+    <div id="mobile" class="text-center">
+      <form action="/videos" method="post" enctype="multipart/form-data">
+        <input id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
+        <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
+        <input class="mobile-form" type="text" name="description" value="SnapThank" hidden><br/>
+        <input class="mobile-form" type="text" name="donor_id" value="<%= @donor.id %>" hidden><br/>
+        <br>
+        <br>
+        <input id="submit" type="submit" name="upload" value="Upload">
+      </form>
+    </div><!-- id=mobile -->
   <p class="user_name">
     <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
   </p>
