@@ -9,62 +9,68 @@
     alert('getUserMedia() is not supported in your browser');
   }
 </script>
+<div class="container">
+  <div class="row">
+    <% if current_user %>
+      <div class="campaigns">
+        </br>
+        <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
+        <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a>
+        </p>
+      </div>
+      <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
+      <p class="sending display-none">Uploading...</p>
+      <div class="donorDiv campaigns">
+        <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
+        <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
+      </div>
+      <div class="video-container">
+        <video autoplay id="video"></video>
+        <div id="center-buttons">
+          <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
+          <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+          <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+        </div>
+      </div>
+      <!-- MOBILE FORM -->
+        <div id="mobile" class="text-center">
+          <form action="/videos" method="post" enctype="multipart/form-data">
+            <input id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
+            <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
+            <input class="mobile-form" type="text" name="description" value="SnapThank" hidden><br/>
+            <input class="mobile-form" type="text" name="donor_id" value="<%= @donor.id %>" hidden><br/>
+            <br>
+            <br>
+            <input id="submit" type="submit" name="upload" value="Upload">
+          </form>
+        </div><!-- id=mobile -->
 
-<% if current_user %>
-  <div class="campaigns">
-    </br>
-    <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
-    <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a>
-    </p>
-  </div>
-  <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
-  <p class="sending display-none">Uploading...</p>
-  <div class="donorDiv campaigns">
-    <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
-    <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
-  </div>
-  <div class="video-container">
-    <video autoplay id="video"></video>
-    <div id="center-buttons">
-      <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
-      <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-      <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
-    </div>
-  </div>
-  <!-- MOBILE FORM -->
-    <div id="mobile" class="text-center">
-      <form action="/videos" method="post" enctype="multipart/form-data">
-        <input id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
-        <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
-        <input class="mobile-form" type="text" name="description" value="SnapThank" hidden><br/>
-        <input class="mobile-form" type="text" name="donor_id" value="<%= @donor.id %>" hidden><br/>
-        <br>
-        <br>
-        <input id="submit" type="submit" name="upload" value="Upload">
-      </form>
-    </div><!-- id=mobile -->
-  <p class="user_name">
-    <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
-  </p>
- <img id="landscape" class="display-none" src="/landscapapp.png">
-<% else %>
-  <div class="note">
-    <p>It is necessary to login to proceed</p>
-    <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
-    <h3>Note:</h3>
-    <ul>
-      <li>
-        <p>This application is only supported on Chrome browser. <%= link_to "Download Chrome", "https://www.google.com/chrome/browser/"%></p>
-      </li>
-      <li>
-        <p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p>
-      </li>
-      <li>
-        <p>Go to <%= link_to "YouTube", "https://www.youtube.com/", target: :_blank %> to create a channel.</p>
-      </li>
-    </ul>
-  </div>
-<% end %>
-<div class="error-message"></div>
-<center></center>
 
+     <img id="landscape" class="display-none" src="/landscapapp.png">
+
+
+    <% else %>
+      <div class="col-sm-11 pager">
+        <div class="note">
+          <h3>Note:</h3>
+          <ul>
+            <li>
+              <p>This application is only supported on Chrome browser. <%= link_to "Download Chrome", "https://www.google.com/chrome/browser/"%></p>
+            </li>
+            <li>
+              <p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p>
+            </li>
+            <li>
+              <p>Go to <%= link_to "YouTube", "https://www.youtube.com/", target: :_blank %> to create a channel.</p>
+            </li>
+          </ul>
+        </div><!-- .note -->
+        </div><!-- .col-ms-8 -->
+        <div class="col-sm-11 pager">
+          <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
+        </div><!-- .col-ms-8 -->
+    <% end %>
+    <div class="error-message"></div>
+    <center></center>
+  </div><!-- .row -->
+</div><!-- .container -->
