@@ -5,9 +5,10 @@
   }
   if (hasGetUserMedia()) {
     console.log("Good to go!");
-    $("#mobile").addClass("display-none");
+
   } else {
-    alert('getUserMedia() is not supported in your browser');
+    console.log("FODA!");
+    // alert('getUserMedia() is not supported in your browser');
   }
 </script>
 
@@ -33,18 +34,14 @@
         </div><!-- .col-sm-11 -->
 
         <div class="col-sm-11 pager">
-          <div class="video-container">
             <video autoplay id="video"></video>
-            <div id="center-buttons">
-              <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
-              <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-              <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
-            </div>
-          </div><!-- .video-container -->
+            <button class="rec buttons center-buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
+            <button class="stop disable-buttons center-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+            <button class="send disable-buttons center-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
         </div><!-- col-sm-11 -->
 
         <!-- MOBILE FORM -->
-        <div id="mobile" class="">
+        <div id="" class="mobile display-none">
           <form action="/videos" method="post" enctype="multipart/form-data">
             <input id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
             <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
