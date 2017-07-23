@@ -1,4 +1,4 @@
-console.log("Safari Recorder")
+
 function capture(video, canvas, image, captureButton, stopButton, snapshotButton) {
   // var ctx = canvas.getContext('2d');
   var localMediaStream = null;
