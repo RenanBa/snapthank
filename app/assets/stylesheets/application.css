@@ -21,6 +21,7 @@ body {
 }
 
 .card {
+  max-width:100%;
   border-style: solid;
 }
 
