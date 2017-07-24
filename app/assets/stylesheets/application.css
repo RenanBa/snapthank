@@ -14,7 +14,12 @@
  *= require_self
  */
 
-
+.pager-custom{
+    padding: 1px;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
 
 body {
   /*overflow: hidden;*/

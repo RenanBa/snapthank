@@ -14,7 +14,7 @@
 </script>
 
 <div class="container">
-  <div class="row">
+  <!-- <div class="row"> -->
     <div class="col-md-offset-1">
 
       <% if current_user %>
@@ -64,21 +64,20 @@
 
       <% else %>
         <!-- BEFORE LOGIN -->
-        <div class="col-sm-11 pager">
+        <div class="col-sm-11 pager-custom">
           <div class="card">
             <h3>Note:</h3>
-            <p>To upload video to YouTube you need a Google and an YouTube account. You also need to create a YouTube channel if you don't have one.</p>
+            <p>To upload video to YouTube you need have Google and YouTube accounts. You also need to create a YouTube channel to upload the videos.</p>
 
             <div style="padding:10px;">
-              <p>If you don't have Google account, <%= link_to "click here", "https://accounts.google.com/ServiceLogin", target: :_blank %> to create one.</p>
-              <br>
-              <p>To go to Youtube home page <%= link_to "click here", "https://www.youtube.com/", target: :_blank %> and create your account or channel.</p>
+              <p>If you don't have Google account, please <%= link_to "click here", "https://accounts.google.com/ServiceLogin", target: :_blank %> to create a Google account and then <%= link_to "click here", "https://www.youtube.com/", target: :_blank %> to create YouTube account and channel</p>
+
             </div><!-- style -->
           </div><!-- card -->
         </div><!-- .col-ms-11 -->
 
         <!-- GOOGLE LOGIN IMAGE -->
-        <div class="col-sm-11 pager">
+        <div class="col-sm-11 pager-custom">
           <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
         </div><!-- .col-ms-11 -->
       <% end %>
@@ -87,5 +86,5 @@
       <center></center>
 
     </div><!-- .col-md-offset-1 -->
-  </div><!-- .row -->
+
 </div><!-- .container -->
