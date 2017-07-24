@@ -8,6 +8,7 @@
 
   } else {
     console.log("FODA!");
+
     // alert('getUserMedia() is not supported in your browser');
   }
 </script>
@@ -17,28 +18,30 @@
     <div class="col-md-offset-1">
 
       <% if current_user %>
-        <div class="col-sm-11">
+        <div class="campaigns">
           <div class="col-sm-6 ">
-            <div class="campaigns pull-right" style="padding-left: 30px">
+            <div class="">
               <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
               <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a></p>
             </div>
           </div><!-- col-sm-6 -->
 
-          <div class="col-sm-3 pull-right card">
-            <div class="donorDiv campaigns" style="padding-left: 20px">
+          <div class="col-sm-4 text-center card">
+            <div class="donorDiv">
               <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
               <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
             </div>
           </div><!-- col-sm-6 -->
-        </div><!-- .col-sm-11 -->
 
-        <div class="col-sm-11 pager">
+          <div class="col-sm-11">
             <video autoplay id="video"></video>
-            <button class="rec buttons center-buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
-            <button class="stop disable-buttons center-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-            <button class="send disable-buttons center-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
-        </div><!-- col-sm-11 -->
+            <div class="col-sm-11 pager">
+              <button class="rec" id="rec" onclick="onBtnRecordClicked()">REC</button>
+              <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+              <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+            </div><!-- col-sm-11 -->
+          </div><!-- col-sm-11 -->
+        </div><!-- campaigns -->
 
         <!-- MOBILE FORM -->
         <div id="" class="mobile display-none">
@@ -51,9 +54,13 @@
           </form>
         </div><!-- id=mobile -->
 
-        <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
-        <p class="sending display-none">Uploading...</p>
-        <img id="landscape" class="display-none" src="/landscapapp.png">
+        <div class="col-sm-11 pager">
+          <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
+        </div> <!-- class="col-sm-11 pager -->
+        <div class="col-sm-11 pager">
+          <p class="sending display-none">Uploading...</p>
+        </div> <!-- class="col-sm-11 pager -->
+          <!-- <img id="landscape" class="display-none" src="/landscapapp.png"> -->
 
       <% else %>
         <!-- BEFORE LOGIN -->

@@ -72,7 +72,6 @@ function onBtnStopClicked(){
 }
 
 function onBtnSendClicked(id){
-
   $(".campaigns").addClass("display-none")
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
