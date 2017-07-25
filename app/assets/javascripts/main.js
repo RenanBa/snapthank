@@ -1,5 +1,6 @@
 console.log("main.js");
 
+
 // HD constraints
 var constraints = {
   audio: true,
@@ -93,8 +94,8 @@ function onBtnSendClicked(id){
     data: fd,
     processData: false,
     contentType: false,
-    success: function(data){video.src = "";
-
+    success: function(data){
+      video.src = "";
       console.log("SUCCESS");
     },
     error: function(data){
@@ -108,7 +109,10 @@ function onBtnSendClicked(id){
     console.log("Error");
     $(".sending").removeClass("display-block").addClass("display-none");
     $("#uploading").removeClass("display-block").addClass("display-none");
-    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>");
+    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>");
   };
 }
 
+function videoPlayerClicked(){
+  video.src = "";
+}

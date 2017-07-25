@@ -204,14 +204,14 @@
     background-color: #EFF0F1;
   }
   p {
-    font-size: 20px;
+    font-size: 17px;
   }
   .scroll{
     padding: 20px;
   }
 
   #video{
-    margin-left: -28px;
+    margin: 100px 0 0 -28px;
     width: 635px;
     height: 355px;
   }
@@ -231,6 +231,44 @@
     margin: -110px 0 0 240px;
   }
 
+  .recordeScroll{
+   border-top: 1px solid #bd743d;
+   background: #283d10;
+   background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
+   background: -webkit-linear-gradient(top, #0dff00, #283d10);
+   background: -moz-linear-gradient(top, #0dff00, #283d10);
+   background: -ms-linear-gradient(top, #0dff00, #283d10);
+   background: -o-linear-gradient(top, #0dff00, #283d10);
+   padding: 20px;
+   -webkit-border-radius: 27px;
+   -moz-border-radius: 27px;
+   border-radius: 27px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   /*color: white;*/
+   font-size: 20px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.recordeScroll:hover {
+   border-top-color: #ff0000;
+   background: #ff0000;
+   color: #ccc;
+   }
+.recordeScroll:active {
+   border-top-color: #ff0000;
+   background: white;
+   }
+
+
+
+.snapThank{
+  padding-top: 70px;
+}
+
 #uploading {
     position: absolute;
     margin: 0 0 0 20%;
@@ -241,8 +279,15 @@
     font-size: 50px;
   }
 
-
-
+  .card {
+    margin-top: -22px;
+  }
+  .message{
+    padding: 1px;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+  }
   .flash{
     font-size: 30px;
     padding: 10px;

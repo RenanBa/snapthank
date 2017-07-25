@@ -20,15 +20,17 @@
       <% if current_user %>
         <div class="campaigns">
           <div class="col-sm-6 ">
-            <div class="">
+            <div class="pager-custom">
               <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
               <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a></p>
             </div>
           </div><!-- col-sm-6 -->
 
-          <div class="col-sm-6 text-center card scroll">
-            <p><strong><a href="#video">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
+          <div class="pager-custom">
+            <p><strong><a class="smoothScroll" href="#video" onclick="videoPlayerClicked()"><button class="recordeScroll">Record a gratitude video to send to <%= @donor.first_name %>.</button></a></strong></p>
           </div>
+
+          <h3 class="pager-custom snapThank">SnapThank</h3>
 
       <!--     <div class="col-sm-6 text-center card">
             <div class="donorDiv">
