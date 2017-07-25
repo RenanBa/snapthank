@@ -27,7 +27,7 @@
           </div><!-- col-sm-6 -->
 
           <div class="pager-custom">
-            <p><strong><a class="smoothScroll" href="#video" onclick="videoPlayerClicked()">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
+            <p><strong><a class="smoothScroll" href="#videoSection" onclick="videoPlayerClicked()">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
           </div>
 
           <h3 class="pager-custom snapThank">SnapThank</h3>
@@ -39,7 +39,7 @@
             </div>
           </div> -->
           <!-- col-sm-6 -->
-
+          <section id="videoSection"></section>
           <div class="col-sm-11">
             <video autoplay id="video"></video>
             <div class="col-sm-11 pager">
