@@ -16,9 +16,9 @@
 <div class="container">
   <!-- <div class="row"> -->
     <div class="col-md-offset-1">
-
       <% if current_user %>
         <div class="campaigns">
+
           <div class="col-sm-6 ">
             <div class="pager-custom">
               <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
@@ -26,28 +26,30 @@
             </div>
           </div><!-- col-sm-6 -->
 
-          <div class="pager-custom">
-            <p><strong><a class="smoothScroll" href="#videoSection" onclick="videoPlayerClicked()">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
-          </div>
-
-          <h3 class="pager-custom snapThank">SnapThank</h3>
-
-      <!--     <div class="col-sm-6 text-center card">
-            <div class="donorDiv">
-              <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
-              <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
+          <div class="portrait-position">
+            <div class="pager-custom">
+              <p><strong><a class="smoothScroll" href="#videoSection" onclick="videoPlayerClicked()">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
             </div>
-          </div> -->
-          <!-- col-sm-6 -->
-          <section id="videoSection"></section>
-          <div class="col-sm-11">
-            <video autoplay id="video"></video>
-            <div class="col-sm-11 pager">
-              <button class="rec" id="rec" onclick="onBtnRecordClicked()">REC</button>
-              <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-              <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+
+            <h3 class="pager-custom snapThank">SnapThank</h3>
+
+        <!--     <div class="col-sm-6 text-center card">
+              <div class="donorDiv">
+                <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
+                <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
+              </div>
+            </div> -->
+            <!-- col-sm-6 -->
+            <section id="videoSection"></section>
+            <div class="col-sm-11">
+              <video autoplay id="video"></video>
+              <div class="col-sm-11 pager">
+                <button class="rec" id="rec" onclick="onBtnRecordClicked()">REC</button>
+                <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+                <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+              </div><!-- col-sm-11 -->
             </div><!-- col-sm-11 -->
-          </div><!-- col-sm-11 -->
+          </div><!-- .portrait-position -->
         </div><!-- campaigns -->
 
         <!-- MOBILE FORM -->
@@ -61,13 +63,16 @@
           </form>
         </div><!-- id=mobile -->
 
+        <!-- BLOCK WITH HIDDEN IMAGES AND GIF -->
         <div class="col-sm-11">
           <iframe id="uploading" class=" display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
         </div> <!-- class="col-sm-11 pager -->
         <div class="col-sm-11 pager">
           <p class="sending display-none">Uploading...</p>
         </div> <!-- class="col-sm-11 pager -->
-          <!-- <img id="landscape" class="display-none" src="/landscapapp.png"> -->
+        <div class="col-sm-11 pager">
+          <img id="landscape" class="display-none" src="/landscapapp.png">
+        </div>
 
       <% else %>
         <!-- BEFORE LOGIN -->

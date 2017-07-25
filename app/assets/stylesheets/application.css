@@ -196,12 +196,16 @@
 .row-info-1{
   background-color: #d8d8d8;
 }
-
-
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
 /* MOBILE */
 
 /* Galaxy landscape*/
-
 @media screen and (device-width: 640px) and (device-height: 360px){
   #body{
     background-color: #b2b2b2;
@@ -236,47 +240,44 @@
   }
 
   .smoothScroll{
-   border-top: 1px solid #bd743d;
-   background: #283d10;
-   background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
-   background: -webkit-linear-gradient(top, #0dff00, #283d10);
-   background: -moz-linear-gradient(top, #0dff00, #283d10);
-   background: -ms-linear-gradient(top, #0dff00, #283d10);
-   background: -o-linear-gradient(top, #0dff00, #283d10);
-   padding: 20px;
-   -webkit-border-radius: 27px;
-   -moz-border-radius: 27px;
-   border-radius: 27px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   /*color: white;*/
-   font-size: 20px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   text-decoration: none;
-   }
-.smoothScroll:hover {
-   border-top-color: #ff0000;
-   background: #ff0000;
-   color: #ccc;
-   text-decoration: none;
-   }
-.smoothScroll:active {
-  text-decoration: none;
-   border-top-color: #ff0000;
-   background: white;
-   }
+    border-top: 1px solid #bd743d;
+    background: #283d10;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
+    background: -webkit-linear-gradient(top, #0dff00, #283d10);
+    background: -moz-linear-gradient(top, #0dff00, #283d10);
+    background: -ms-linear-gradient(top, #0dff00, #283d10);
+    background: -o-linear-gradient(top, #0dff00, #283d10);
+    padding: 20px;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+     /*color: white;*/
+    font-size: 20px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+  .smoothScroll:hover {
+    border-top-color: #ff0000;
+    background: #ff0000;
+    color: #ccc;
+    text-decoration: none;
+  }
+  .smoothScroll:active {
+    text-decoration: none;
+    border-top-color: #ff0000;
+    background: white;
+  }
+  .snapThank{
+    padding-top: 120px;
+  }
 
-
-
-.snapThank{
-  padding-top: 120px;
-}
-
-#uploading {
+  #uploading {
     position: absolute;
     margin: 0 0 0 20%;
     width: 300px;
@@ -299,11 +300,28 @@
     font-size: 30px;
     padding: 10px;
   }
-   #landscape{
+  #landscape{
     display: none;
   }
 
   .alert-notice{
     text-align: center;
+  }
+}
+
+
+/* Galaxy portrait*/
+@media screen and (device-width: 360px) and (device-height: 640px){
+  .portrait-position{
+    display:none;
+  }
+  #landscape{
+    display: block;
+    width: 390px;
+    height: 290px;
+    margin-left: -30px;
+  }
+  p {
+    font-size: 17px;
   }
 }
