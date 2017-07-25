@@ -213,7 +213,7 @@
   #video{
     margin: 100px 0 0 -28px;
     width: 635px;
-    height: 355px;
+    height: 320px;
   }
 
   #rec{
@@ -231,7 +231,7 @@
     margin: -110px 0 0 240px;
   }
 
-  .recordeScroll{
+  .smoothScroll{
    border-top: 1px solid #bd743d;
    background: #283d10;
    background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
@@ -252,13 +252,16 @@
    font-family: Georgia, serif;
    text-decoration: none;
    vertical-align: middle;
+   text-decoration: none;
    }
-.recordeScroll:hover {
+.smoothScroll:hover {
    border-top-color: #ff0000;
    background: #ff0000;
    color: #ccc;
+   text-decoration: none;
    }
-.recordeScroll:active {
+.smoothScroll:active {
+  text-decoration: none;
    border-top-color: #ff0000;
    background: white;
    }
@@ -266,7 +269,7 @@
 
 
 .snapThank{
-  padding-top: 70px;
+  padding-top: 120px;
 }
 
 #uploading {
