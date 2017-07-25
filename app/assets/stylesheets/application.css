@@ -208,7 +208,7 @@
 /* Galaxy landscape*/
 @media screen and (device-width: 640px) and (device-height: 360px){
   #body{
-    background-color: #b2b2b2;
+    background-color: #cccccc;
     /*background-color: gray;*/
   }
   p {
@@ -317,8 +317,8 @@
   }
   #landscape{
     display: block;
-    width: 390px;
-    height: 290px;
+    width: 370px;
+    height: 270px;
     margin-left: -30px;
   }
   p {
