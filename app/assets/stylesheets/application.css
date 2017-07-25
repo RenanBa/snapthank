@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 .pager-custom{
     padding: 1px;
     margin: 20px 0;
@@ -199,14 +200,20 @@
 /* Galaxy landscape*/
 
 @media screen and (device-width: 640px) and (device-height: 360px){
-   body {
-    background-color: gray;
+  #body{
+    background-color: #EFF0F1;
+  }
+  p {
+    font-size: 20px;
+  }
+  .scroll{
+    padding: 20px;
   }
 
   #video{
-    margin-left: -3%;
-    width: 100%;
-    height: 100%;
+    margin-left: -28px;
+    width: 635px;
+    height: 355px;
   }
 
   #rec{

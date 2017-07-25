@@ -26,12 +26,17 @@
             </div>
           </div><!-- col-sm-6 -->
 
-          <div class="col-sm-4 text-center card">
+          <div class="col-sm-6 text-center card scroll">
+            <p><strong><a href="#video">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
+          </div>
+
+      <!--     <div class="col-sm-6 text-center card">
             <div class="donorDiv">
               <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
               <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
             </div>
-          </div><!-- col-sm-6 -->
+          </div> -->
+          <!-- col-sm-6 -->
 
           <div class="col-sm-11">
             <video autoplay id="video"></video>
@@ -67,10 +72,10 @@
         <div class="col-sm-11 pager-custom">
           <div class="card">
             <h3>Note:</h3>
-            <p>To upload video to YouTube you need have Google and YouTube accounts. You also need to create a YouTube channel to upload the videos.</p>
+            <p>To upload video to YouTube you need have a Google and YouTube accounts. You also need to create a YouTube channel to upload the videos.</p>
 
             <div style="padding:10px;">
-              <p>If you don't have Google account, please <%= link_to "click here", "https://accounts.google.com/ServiceLogin", target: :_blank %> to create a Google account and then <%= link_to "click here", "https://www.youtube.com/", target: :_blank %> to create YouTube account and channel</p>
+              <p>If you don't have Google account, please <%= link_to "click here", "https://accounts.google.com/ServiceLogin", target: :_blank %> to create a Google account and then <%= link_to "click here", "https://www.youtube.com/", target: :_blank %> to create a YouTube account and channel</p>
 
             </div><!-- style -->
           </div><!-- card -->
