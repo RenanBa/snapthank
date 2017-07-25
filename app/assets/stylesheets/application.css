@@ -21,9 +21,6 @@
     list-style: none;
 }
 
-body {
-  /*overflow: hidden;*/
-}
 
 .card {
   max-width:100%;
@@ -71,7 +68,7 @@ body {
 }
 
 .disable-buttons{
-  margin-left: 5%;
+  /*margin-left: 5%;*/
   display: none;
 }
 /*.buttons{
@@ -188,14 +185,66 @@ body {
   display:block;
 }
 
-
-
-
-
 /*admin*/
 .admin{
   float: right;
 }
 .row-info-1{
   background-color: #d8d8d8;
+}
+
+
+/* MOBILE */
+
+/* Galaxy landscape*/
+
+@media screen and (device-width: 640px) and (device-height: 360px){
+   body {
+    background-color: gray;
+  }
+
+  #video{
+    margin-left: -4%;
+    width: 100%;
+    height: 100%;
+  }
+
+  #rec{
+    position: absolute;
+    margin: -310px 0 0 250px;
+  }
+
+  #stop{
+    position: absolute;
+    margin: -210px 0 0 250px;
+  }
+
+  #send{
+    position: absolute;
+    margin: -110px 0 0 240px;
+  }
+
+/*#uploading {
+    position: absolute;
+    margin: 75px 0 0 330px;
+    width: 300px;
+    height: 300px;
+  }*/
+  .sending{
+    font-size: 25px;
+  }
+
+
+
+  .flash{
+    font-size: 30px;
+    padding: 10px;
+  }
+   #landscape{
+    display: none;
+  }
+
+  .alert-notice{
+    text-align: center;
+  }
 }
