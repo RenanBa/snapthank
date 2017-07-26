@@ -342,6 +342,20 @@
   #video{
     margin-top: -10px;
   }
+    #rec{
+    position: absolute;
+    margin-top: -25px;
+  }
+
+  #stop{
+    position: absolute;
+    margin-top: -25px;
+  }
+
+  #send{
+    position: absolute;
+    margin-top: -25px;
+  }
   #bottom{
     margin-top: 300px;
   }
