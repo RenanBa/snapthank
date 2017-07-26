@@ -113,6 +113,6 @@ function onBtnSendClicked(id){
   };
 }
 
-function videoPlayerClicked(){
-  video.src = "";
-}
+// function videoPlayerClicked(){
+//   video.src = "";
+// }
