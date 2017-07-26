@@ -315,10 +315,13 @@
   .alert-notice{
     text-align: center;
   }
-  .portrait-margin-top{
-    margin-top: 20px;
+   #bottom{
+    position: absolute;
+    margin-top: -400px;
   }
 }
+
+
 
 
 /* Galaxy portrait*/
