@@ -247,7 +247,7 @@
     margin: -125px 0 0 245px;
   }
 
-  .smoothScroll{
+  .videoSection{
     border-top: 1px solid #bd743d;
     background: #283d10;
     background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
@@ -270,13 +270,13 @@
     vertical-align: middle;
     text-decoration: none;
   }
-  .smoothScroll:hover {
+  .videoSection:hover {
     /*border-top-color: #ff0000;*/
     /*background: #283d10;*/
     color: #ccc;
     text-decoration: none;
   }
-  /*.smoothScroll:active {
+  /*.videoSection:active {
     text-decoration: none;
     border-top-color: #ff0000;
     background: white;

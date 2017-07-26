@@ -33,7 +33,7 @@
 
           <div class="portrait-position">
             <div class="pager-custom landscape-info">
-              <p><strong><a class="smoothScroll" href="#videoSection">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
+              <p><strong><a class="videoSection" href="#videoSection">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
             </div>
 
             <h3 class="pager-custom snapThank landscape-info">SnapThank</h3>
@@ -49,7 +49,7 @@
             <div class="col-sm-11">
               <video autoplay id="video"></video>
               <div class="col-sm-11 pager">
-                <button class="rec" id="rec" onclick="onBtnRecordClicked()">REC</button>
+                <button class="rec" id="rec" onclick="onBtnRecordClicked()"><a class="smoothScroll" href="#stop">REC</a></button>
                 <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
                 <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
               </div><!-- col-sm-11 -->
