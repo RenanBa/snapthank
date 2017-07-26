@@ -27,18 +27,18 @@
           </div><!-- col-sm-6 -->
 
           <div class="portrait-position">
-            <div class="pager-custom">
+            <div class="pager-custom landscape-info">
               <p><strong><a class="smoothScroll" href="#videoSection" onclick="videoPlayerClicked()">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
             </div>
 
-            <h3 class="pager-custom snapThank">SnapThank</h3>
+            <h3 class="pager-custom snapThank landscape-info">SnapThank</h3>
 
-        <!--     <div class="col-sm-6 text-center card">
+            <div class="col-sm-4 text-center card deskto-info  pager-custom">
               <div class="donorDiv">
                 <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
                 <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
               </div>
-            </div> -->
+            </div>
             <!-- col-sm-6 -->
             <section id="videoSection"></section>
             <div class="col-sm-11">
@@ -65,10 +65,10 @@
 
         <!-- BLOCK WITH HIDDEN IMAGES AND GIF -->
         <div class="col-sm-11">
-          <iframe id="uploading" class=" display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
+          <iframe id="uploading" class=" display-none col-sm-12 pager-custom" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
         </div> <!-- class="col-sm-11 pager -->
         <div class="col-sm-11 pager">
-          <p class="sending display-none">Uploading...</p>
+          <h2 class="sending display-none">Uploading...</h2>
         </div> <!-- class="col-sm-11 pager -->
         <div class="col-sm-11 pager">
           <img id="landscape" class="display-none" src="/landscapapp.png">
@@ -94,9 +94,7 @@
         </div><!-- .col-ms-11 -->
       <% end %>
 
+    </div><!-- .col-md-offset-1 -->
       <div class="error-message"></div>
       <center></center>
-
-    </div><!-- .col-md-offset-1 -->
-
 </div><!-- .container -->
