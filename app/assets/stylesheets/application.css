@@ -315,9 +315,9 @@
   .alert-notice{
     text-align: center;
   }
-/*  .col-md-offset-1{
-    margin-top: -50px;
-  }*/
+  .portrait-margin-top{
+    margin-top: 0px;
+  }
 }
 
 
@@ -342,7 +342,7 @@
   #video{
     margin-top: -10px;
   }
-    #rec{
+  #rec{
     position: absolute;
     margin: -25px 0 0 -150px;
   }
