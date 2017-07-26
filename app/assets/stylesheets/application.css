@@ -336,4 +336,10 @@
   p {
     font-size: 17px;
   }
+  .portrait-margin-top{
+    margin-top: -20px;
+  }
+  #video{
+    margin-top: -10px;
+  }
 }
