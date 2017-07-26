@@ -207,6 +207,13 @@
 /* MOBILE */
 /* MOBILE */
 
+.white-block{
+  background-color: white;
+  position: absolute;
+  width: 80px;
+  height: 50px;
+}
+
 /* Galaxy landscape*/
 @media screen and (device-width: 640px) and (device-height: 360px){
   #body{

@@ -1,5 +1,30 @@
 console.log("main.js");
 
+$(document).ready(function() {
+  function hasGetUserMedia() {
+    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+  }
+  if (hasGetUserMedia()) {
+    console.log("Good to go!");
+    $(".lunch-local-camera").remove();
+  } else {
+    // alert('getUserMedia() is not supported in your browser');
+    console.log("Not supported");
+    $(".chromeBrowser").remove();
+    $(".mobile").removeClass("display-none");
+  }
+
+
+  $(".lunch-local-camera").click(function(){
+    $("#file-input").trigger('click');
+  });
+
+  $("#submit").click(function(){
+    $(this).hide();
+  });
+});
+
 
 // HD constraints
 var constraints = {
@@ -73,7 +98,7 @@ function onBtnStopClicked(){
 }
 
 function onBtnSendClicked(id){
-  $(".campaigns").addClass("display-none")
+  $(".campaigns").addClass("display-none");
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
@@ -113,19 +138,9 @@ function onBtnSendClicked(id){
   };
 }
 
-// function videoPlayerClicked(){
-//   video.src = "";
-// }
 
-if (window.matchMedia("(orientation: portrait)").matches) {
-   // you're in PORTRAIT mode
-   console.log("PORTRAIT");
-   $(".portrait").removeClass("display-none").addClass("display-block");
-}
 
-if (window.matchMedia("(orientation: landscape)").matches) {
-   // you're in LANDSCAPE mode
-   console.log("LANDSCAPE");
-}
+
+
 
 

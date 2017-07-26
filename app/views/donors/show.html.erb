@@ -1,16 +1,5 @@
 <script>
-  function hasGetUserMedia() {
-    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia || navigator.msGetUserMedia);
-  }
-  if (hasGetUserMedia()) {
-    console.log("Good to go!");
-    // console.log(video.src);
-  } else {
 
-
-    // alert('getUserMedia() is not supported in your browser');
-  }
 </script>
 
 <div class="container">
@@ -36,7 +25,7 @@
               <p><strong><a class="smoothScroll videoSection" href="#videoSection">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
             </div>
 
-            <h3 class="pager-custom snapThank landscape-info">SnapThank</h3>
+            <h3 class="pager-custom snapThank landscape-info chromeBrowser">SnapThank</h3>
 
             <div class="col-sm-4 text-center card deskto-info portrait-margin-top pager-custom">
               <div class="donorDiv">
@@ -44,6 +33,7 @@
                 <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
               </div>
             </div>
+            <div class="chromeBrowser">
             <!-- col-sm-6 -->
             <section id="videoSection"></section>
             <div class="col-sm-11">
@@ -54,16 +44,24 @@
                 <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
               </div><!-- col-sm-11 -->
             </div><!-- col-sm-11 -->
+            </div><!-- .chromeBrowser -->
           </div><!-- .portrait-position -->
         </div><!-- campaigns -->
 
         <!-- MOBILE FORM -->
-        <div id="" class="mobile display-none">
+        <p><button class="lunch-local-camera col-sm-11">Click here to record a gratitude video to send to <%= @donor.first_name %>.</button></p>
+
+        <div id="" class="mobile display-none col-sm-11 pager">
+          <div class="white-block"></div>
           <form action="/videos" method="post" enctype="multipart/form-data">
-            <input id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
+            <input for="files" id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
+
             <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
+
             <input class="mobile-form" type="text" name="description" value="SnapThank" hidden><br/>
+
             <input class="mobile-form" type="text" name="donor_id" value="<%= @donor.id %>" hidden><br/>
+
             <input id="submit" type="submit" name="upload" value="Upload">
           </form>
         </div><!-- id=mobile -->
@@ -100,5 +98,5 @@
     </div><!-- .col-md-offset-1 -->
       <div class="error-message"></div>
       <center></center>
-      <section id="bottom">BOTTOM</section>
+      <section id="bottom"></section>
 </div><!-- .container -->
