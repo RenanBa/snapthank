@@ -28,6 +28,7 @@
           <a class="navbar-brand" href="https://snapthank.herokuapp.com">SnapThank</a>
         <!-- </div> -->
             <ul class="login nav navbar-nav navbar-right">
+
               <% if current_admin %>
                 <!-- <a class="navbar-brand" href="#">Welcome Admin</a> -->
                 <li><a href="/admins/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
@@ -38,7 +39,7 @@
       </div>
     </nav>
 
-
+<p></p>
 
 
       <%= yield %>
