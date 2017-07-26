@@ -116,3 +116,16 @@ function onBtnSendClicked(id){
 // function videoPlayerClicked(){
 //   video.src = "";
 // }
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+   // you're in PORTRAIT mode
+   console.log("PORTRAIT");
+   $(".portrait").removeClass("display-none").addClass("display-block");
+}
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+   // you're in LANDSCAPE mode
+   console.log("LANDSCAPE");
+}
+
+

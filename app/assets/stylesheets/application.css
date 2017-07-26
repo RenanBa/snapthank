@@ -323,14 +323,15 @@
 
 /* Galaxy portrait*/
 @media screen and (device-width: 360px) and (device-height: 640px){
-  .portrait-position{
+ /* .portrait-position{
     display:none;
-  }
+  }*/
   #landscape{
     display: block;
-    width: 370px;
-    height: 270px;
-    margin-left: -30px;
+    width: 170px;
+    height: 100px;
+    margin: auto;
+    margin-top: -20px;
   }
   p {
     font-size: 17px;
