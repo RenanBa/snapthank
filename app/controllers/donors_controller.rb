@@ -38,7 +38,8 @@ class DonorsController < ApplicationController
 
   # Create with mailer action call
   def create
-    if request_ip(request.ip)
+    # if request_ip(request.ip)
+    if check(params)
       @donor = Donor.new(
                           first_name: params[:first_name],
                           last_name: params[:last_name],
