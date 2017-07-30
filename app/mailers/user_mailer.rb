@@ -1,18 +1,17 @@
+require 'mail'
 class UserMailer < ApplicationMailer
-   default from: ENV['gmail_username'],
-           reply_to: ENV['REPLY_TO']
+  address = Mail::Address.new ENV['gmail_username']
+  address.display_name = "New Story Team"
+
+  default from: address.format
+          #ENV['gmail_username'],
+          #reply_to: ENV['REPLY_TO']
 
   def welcome_email(member, donor)
     @member = member
-
-    @team = "New Story Team"
-    email_with_name = %("#{@team}" <#{member.email}>)
-
     @donor = donor
     @url  = "https://snapthank.herokuapp.com/donors/#{@donor.id}?key=#{@donor.key}"
-    #mail(to: @member.email, subject: "#{@member.name}, your turn! #{@donor.first_name} just donated :)")
-
-    mail(to: email_with_name, subject: "#{@member.name}, your turn! #{@donor.first_name} just donated :)")
+    mail(to: @member.email, subject: "#{@member.name}, your turn! #{@donor.first_name} just donated :)")
   end
 
   def thanks_email(donor, video)
