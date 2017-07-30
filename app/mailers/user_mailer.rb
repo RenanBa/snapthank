@@ -3,9 +3,8 @@ class UserMailer < ApplicationMailer
   address = Mail::Address.new ENV['gmail_username']
   address.display_name = "New Story Team"
 
-  default from: address.format
-          #ENV['gmail_username'],
-          #reply_to: ENV['REPLY_TO']
+  default from: address.format,
+          reply_to: ENV['REPLY_TO']
 
   def welcome_email(member, donor)
     @member = member
