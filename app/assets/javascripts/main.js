@@ -48,14 +48,15 @@ function startRecording(stream) {
   console.log('Start recording...');
 
   mediaRecorder = new MediaRecorder(stream);
-  mediaRecorder.start(10);
+  mediaRecorder.start(1000);
   var video = document.querySelector('video');
   video.src = window.URL.createObjectURL(stream);
 
+
   mediaRecorder.ondataavailable = function(e) {
-    //console.log('Data available...');
+    console.log('Data available...', e.data.type, e.data.size, e.data);
     chunks.push(e.data);
-    video.muted = true
+    video.muted = true;
   };
 
   mediaRecorder.onerror = function(e){
@@ -69,7 +70,7 @@ function startRecording(stream) {
 
   mediaRecorder.onstop = function(){
     console.log('Stopped  & state = ' + mediaRecorder.state);
-    video.muted = false
+    video.muted = false;
     blob = new Blob(chunks, {type: "video/webm"});
     chunks = [];
     var videoURL = window.URL.createObjectURL(blob);
