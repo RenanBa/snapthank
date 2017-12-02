@@ -2,6 +2,8 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
+
+    @schedule = schedule
   end
 
   # def new
