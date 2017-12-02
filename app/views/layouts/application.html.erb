@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SnapThank Newstory">
+    <meta name="author" content="Renan Souza">
     <title>SnapThankV1</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
-  <body>
-   <!--  <div class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-        <h2>SnapThank</h2>
-        </div>
-      </div>
-    </div> -->
+  <body id="body">
+  <!-- NAVIGATOR -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- <div class="navbar-header"> -->
+          <a class="navbar-brand" href="https://snapthank.herokuapp.com">SnapThank</a>
+        <!-- </div> -->
+            <ul class="login nav navbar-nav navbar-right">
 
-    <div>
+              <% if current_admin %>
+                <!-- <a class="navbar-brand" href="#">Welcome Admin</a> -->
+                <li><a href="/admins/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+              <% else %>
+                <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span> Admin Login </a></li>
+              <% end %>
+            </ul>
+      </div>
+    </nav>
+
+<p></p>
+
+
       <%= yield %>
     </div>
   </body>

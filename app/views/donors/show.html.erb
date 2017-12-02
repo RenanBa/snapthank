@@ -1,54 +1,102 @@
 <script>
-  function hasGetUserMedia() {
-    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia || navigator.msGetUserMedia);
-  }
-  if (hasGetUserMedia()) {
-    console.log("Good to go!");
-  } else {
-    alert('getUserMedia() is not supported in your browser');
-  }
+
 </script>
 
+<div class="container">
+  <!-- <div class="row"> -->
 
-<% if current_user %>
-  <iframe id="uploading" class="display-none" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
-  <p class="sending display-none">Uploading...</p>
-  <div class="donorDiv">
-    <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
-    <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
-  </div>
-  <div class="video-container">
-    <video autoplay id="video"></video>
-    <div id="center-buttons">
-      <button class="rec buttons" id="rec" onclick="onBtnRecordClicked()">REC</button>
-      <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
-      <button class='send disable-buttons' id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
-    </div>
-  </div>
 
-  <p class="user_name">
-    <!-- Welcome, <span><%#= current_user.name %></span>! | <%#= link_to 'Log Out', logout_path, method: :delete %> -->
-  </p>
- <img id="landscape" class="display-none" src="/landscapapp.png">
-<% else %>
-  <div class="note">
-    <p>It is necessary to login to proceed</p>
-    <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
-    <h3>Note:</h3>
-    <ul>
-      <li>
-        <p>This application is only supported on Chrome browser. <%= link_to "Download Chrome", "https://www.google.com/chrome/browser/"%></p>
-      </li>
-      <li>
-        <p>To be able to upload video to YouTube is necessary to have a YouTube channel.</p>
-      </li>
-      <li>
-        <p>Go to <%= link_to "YouTube", "https://www.youtube.com/", target: :_blank %> to create a channel.</p>
-      </li>
-    </ul>
-  </div>
-<% end %>
-<div class="error-message"></div>
-<center></center>
+    <div class="col-md-offset-1">
+      <% if current_user %>
+        <div class="col-sm-11">
+          <img id="landscape" class="display-none" src="/landscapapp.png">
+        </div>
+        <div class="campaigns">
 
+          <div class="col-sm-6 portrait-margin-top">
+            <div class="pager-custom">
+              <p><%= @donor.first_name %> <%= @donor.last_name %> just donated $<%= @donor.donation %> via <a href="https://impact.newstorycharity.org/campaigns/<%= @donor.campaign_slug %>"><%= @donor.campaign_name %></a> part of <%= @donor.affiliate %>.</p>
+              <p>See their donation <a href="https://manage.newstorycharity.org/donations/<%= @donor.secure_id %>">here.</a></p>
+            </div>
+          </div><!-- col-sm-6 -->
+
+          <div class="portrait-position">
+            <div class="pager-custom landscape-info">
+              <p><strong><a class="smoothScroll videoSection" href="#videoSection">Record a gratitude video to send to <%= @donor.first_name %>.</a></strong></p>
+            </div>
+
+            <h3 class="pager-custom snapThank landscape-info chromeBrowser">SnapThank</h3>
+
+            <div class="col-sm-4 text-center card deskto-info portrait-margin-top pager-custom">
+              <div class="donorDiv">
+                <p class="donation donor-info">Donation: $<%= @donor.donation %></p>
+                <p class="donor-name donor-info">Donor's name: <%= @donor.first_name %></p>
+              </div>
+            </div>
+            <div class="chromeBrowser">
+            <!-- col-sm-6 -->
+            <section id="videoSection"></section>
+            <div class="col-sm-11">
+              <video autoplay id="video"></video>
+              <div class="col-sm-11 pager">
+                <button class="rec" id="rec" onclick="onBtnRecordClicked()"><a class="smoothScroll" href="#bottom">REC</a></button>
+                <button class="stop disable-buttons" id="stop" onclick="onBtnStopClicked()">STOP</button>
+                <button class="send disable-buttons" id="send" onclick='onBtnSendClicked("<%= @donor.id %>")'>SEND</button>
+              </div><!-- col-sm-11 -->
+            </div><!-- col-sm-11 -->
+            </div><!-- .chromeBrowser -->
+          </div><!-- .portrait-position -->
+        </div><!-- campaigns -->
+
+        <!-- MOBILE FORM -->
+        <p><button class="lunch-local-camera col-sm-11">Click here to record a gratitude video to send to <%= @donor.first_name %>.</button></p>
+
+        <div id="" class="mobile display-none col-sm-11 pager">
+          <div class="white-block"></div>
+          <form action="/videos" method="post" enctype="multipart/form-data">
+            <input for="files" id="file-input" class="buttons" type="file" name="webmasterfile" accept="video/*" capture=""><br/>
+
+            <input class="mobile-form" type="text" name="title" value="video_<%= @donor.key %>" hidden><br/>
+
+            <input class="mobile-form" type="text" name="description" value="SnapThank" hidden><br/>
+
+            <input class="mobile-form" type="text" name="donor_id" value="<%= @donor.id %>" hidden><br/>
+
+            <input id="submit" type="submit" name="upload" value="Upload">
+          </form>
+        </div><!-- id=mobile -->
+
+        <!-- BLOCK WITH HIDDEN IMAGES AND GIF -->
+        <div class="col-sm-11">
+          <iframe id="uploading" class=" display-none col-sm-12 pager-custom" src="https://www.bis.org/img/uploading.gif" frameBorder="0"></iframe>
+        </div> <!-- class="col-sm-11 pager -->
+        <div class="col-sm-11 pager">
+          <h2 class="sending display-none">Uploading...</h2>
+        </div> <!-- class="col-sm-11 pager -->
+
+
+      <% else %>
+        <!-- BEFORE LOGIN -->
+        <div class="col-sm-11 pager-custom">
+          <div class="card">
+            <h3>Note:</h3>
+            <p>To upload video to YouTube you need have a Google and YouTube accounts. You also need to create a YouTube channel to upload the videos.</p>
+
+            <div style="padding:10px;">
+              <p>If you don't have Google account, please <%= link_to "click here", "https://accounts.google.com/ServiceLogin", target: :_blank %> to create a Google account and then <%= link_to "click here", "https://www.youtube.com/", target: :_blank %> to create a YouTube account and channel</p>
+
+            </div><!-- style -->
+          </div><!-- card -->
+        </div><!-- .col-ms-11 -->
+
+        <!-- GOOGLE LOGIN IMAGE -->
+        <div class="col-sm-11 pager-custom">
+          <a href="/auth/google_oauth2"><img class="SignInGoogle" src="/signInGoogle.png"></a>
+        </div><!-- .col-ms-11 -->
+      <% end %>
+
+    </div><!-- .col-md-offset-1 -->
+      <div class="error-message"></div>
+      <center></center>
+      <section id="bottom"></section>
+</div><!-- .container -->

@@ -9,22 +9,22 @@ class VideosController < ApplicationController
   # end
 
   def create
-    5.times{p "VIDEO CREATE"}
+    3.times{p "VIDEO CREATE"}
     @donor = Donor.find(params[:donor_id])
     @video_upload = @donor.videos.create(title: params[:title],
                                     description: params[:description],
                                     file: params[:webmasterfile].try(:tempfile).try(:to_path))
     if @video_upload.save
-      5.times{p "SAVED"}
+      3.times{p "SAVED"}
       uploaded_video = @video_upload.upload!(current_user)
       if uploaded_video.failed?
         flash[:error] = 'There was an error while uploading your video...'
         redirect_to root_url
       else
-        5.times{p "creating link"}
+        3.times{p "creating link"}
         @video_upload.update!(link: uploaded_video.id)
         respond_to do |format|
-          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: 5.minutes)
+          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: schedule.minutes)
           format.html { redirect_to(root_url, notice: 'Uploaded Successfully!') }
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end

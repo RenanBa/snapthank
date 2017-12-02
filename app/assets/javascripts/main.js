@@ -1,5 +1,31 @@
 console.log("main.js");
 
+$(document).ready(function() {
+  function hasGetUserMedia() {
+    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+  }
+  if (hasGetUserMedia()) {
+    console.log("Good to go!");
+    $(".lunch-local-camera").remove();
+  } else {
+    // alert('getUserMedia() is not supported in your browser');
+    console.log("Not supported");
+    $(".chromeBrowser").remove();
+    $(".mobile").removeClass("display-none");
+  }
+
+
+  $(".lunch-local-camera").click(function(){
+    $("#file-input").trigger('click');
+  });
+
+  $("#submit").click(function(){
+    $(this).hide();
+  });
+});
+
+
 // HD constraints
 var constraints = {
   audio: true,
@@ -22,14 +48,15 @@ function startRecording(stream) {
   console.log('Start recording...');
 
   mediaRecorder = new MediaRecorder(stream);
-  mediaRecorder.start(10);
+  mediaRecorder.start(1000);
   var video = document.querySelector('video');
   video.src = window.URL.createObjectURL(stream);
 
+
   mediaRecorder.ondataavailable = function(e) {
-    //console.log('Data available...');
+    console.log('Data available...', e.data.type, e.data.size, e.data);
     chunks.push(e.data);
-    video.muted = true
+    video.muted = true;
   };
 
   mediaRecorder.onerror = function(e){
@@ -43,7 +70,7 @@ function startRecording(stream) {
 
   mediaRecorder.onstop = function(){
     console.log('Stopped  & state = ' + mediaRecorder.state);
-    video.muted = false
+    video.muted = false;
     blob = new Blob(chunks, {type: "video/webm"});
     chunks = [];
     var videoURL = window.URL.createObjectURL(blob);
@@ -72,7 +99,7 @@ function onBtnStopClicked(){
 }
 
 function onBtnSendClicked(id){
-
+  $(".campaigns").addClass("display-none");
   $(".sending").addClass("display-block");
   $("#center-buttons").addClass("display-none");
   $(".video-container").addClass("display-none");
@@ -85,7 +112,7 @@ function onBtnSendClicked(id){
   fd.append("title", "video_"+rand+".webm");
   fd.append("description", "SnapThank");
   fd.append("donor_id", id);
-
+  video.src = "";
   $.ajax({
     type: 'POST',
     url: 'https://snapthank.herokuapp.com/videos',
@@ -98,6 +125,7 @@ function onBtnSendClicked(id){
       console.log("SUCCESS");
     },
     error: function(data){
+      video.src = "";
       console.log(data);
       uploadError();
     }
@@ -107,7 +135,13 @@ function onBtnSendClicked(id){
     console.log("Error");
     $(".sending").removeClass("display-block").addClass("display-none");
     $("#uploading").removeClass("display-block").addClass("display-none");
-    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Send Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>");
+    $(".error-message").append("<div class='message'><h1>Something wrong happened</h1><a href='/logout'><button class='send'><h2>Try Again</h2></button></a><h2>Make sure that you have a YouTube channel.</div>");
   };
 }
+
+
+
+
+
+
 

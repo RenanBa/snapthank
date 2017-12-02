@@ -15,68 +15,74 @@
  */
 
 
-
-body {
-  /*overflow: hidden;*/
+.pager-custom{
+    padding: 1px;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
 }
 
-.donorDiv {
+.landscape-info{
+  display:none;
+}
+
+
+.card {
+  max-width:100%;
+  border-style: solid;
+}
+
+.login {
+  float: right;
+}
+
+/*.donorDiv {
   float: left;
 }
-
+*/
 .SignInGoogle{
-  width: 350px;
-  height: 75px;
+  width: 250px;
+  height: 60px;
 }
 
-.donor_container{
+/*.donor_container{
   width: 100%;
-}
+}*/
 
-.user_name{
-  /*float: right;*/
+/*.user_name{
   margin-top: 20px;
   padding-right: 10px;
 }
-
+*/
 #video {
   background: #212020;
-  margin: 0 0px 0 50px;
-  width: 900px;
-  height: 550px;
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
 }
 
-#center-buttons{
-    /*background: blue;*/
-    margin-top: 15px;
-    margin-left: 35%;
-}
+/*#center-buttons{
+  padding: 15px;
+}*/
 
 #uploading {
-  position: absolute;
-  margin: 125px 0 0 570px;
-  width: 550px;
-  height: 550px;
+  width: 400px;
+  height: 400px;
 }
 
 .disable-buttons{
-  margin-left: 5%;
+  /*margin-left: 5%;*/
   display: none;
 }
-.buttons{
+/*.buttons{
   margin-left: 5%;
 }
+*/
 
- #uploading {
-  position: absolute;
-  margin: 75px 0 0 330px;
-  width: 300px;
-  height: 300px;
-}
 .sending{
-  position: absolute;
-  margin: 380px 0 0 390px;
-  font-size: 50px;
+  /*position: absolute;*/
+  /*margin: 380px 0 0 390px;*/
+  /*font-size: 50px;*/
 }
 
 .rec {
@@ -181,543 +187,9 @@ body {
 .display-block{
   display:block;
 }
-
-
-/* iPad Pro and iPad. It also cover iPhone 5 and iPhone 6 but they have really different size*/
-@media only screen and (-webkit-device-pixel-ratio: 2) {
-   body {
-        /*background-color: lightblue;*/
-        overflow: hidden;
-    }
-}
-
-  /* iPhone 5 portrait */
-  @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
-     body {
-        /*background-color: gray;*/
-        overflow: hidden;
-    }
-    .note{
-      font-size: 50px;
-      padding: 15px;
-    }
-    .SignInGoogle{
-      width: 700px;
-      height: 150px;
-    }
-    #video {
-      margin: 0 0px 0 10px;
-    }
-     #landscape{
-      display: block;
-      margin: 100px 0 0 120px;
-      width: 800px;
-      height: 600px;
-    }
-}
-  /* iPhone 5 landscape */
-  @media screen and (device-width: 568px) and (device-height: 320px) and (-webkit-device-pixel-ratio: 2){
-     body {
-        /*background-color: gray;*/
-        overflow: hidden;
-    }
-  .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      display: block;
-      margin: auto;
-      width: 940px;
-      height: 500px;
-    }
-    #uploading {
-      position: absolute;
-      margin: 75px 0 0 330px;
-      width: 300px;
-      height: 300px;
-    }
-    .sending{
-      position: absolute;
-      margin: 380px 0 0 390px;
-      font-size: 50px;
-    }
-
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .stop{
-      margin-top: 180px;
-    }
-     .send{
-      margin-top: 180px;
-    }
-    .note{
-      font-size: 25px;
-      padding: 10px;
-    }
-    .flash{
-      font-size: 35px;
-      padding: 10px;
-    }
-     #landscape{
-      display: none;
-    }
-
-    .alert-notice{
-      text-align: center;
-    }
-
-
-/*Error message*/
-  .message{
-    text-align: center;
+ #landscape{
+    display: none;
   }
-}
-  /* iPhone 6 portrait*/
-  @media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2){
-     body {
-        /*background-color: green;*/
-        overflow: hidden;
-    }
-    .note{
-      font-size: 50px;
-      padding: 15px;
-    }
-    .SignInGoogle{
-      width: 700px;
-      height: 150px;
-    }
-    #video {
-      margin: 0 0px 0 10px;
-    }
-     #landscape{
-      display: block;
-      margin: 100px 0 0 120px;
-      width: 800px;
-      height: 600px;
-    }
-}
-  /* iPhone 6 landscape*/
-  @media screen and (device-width: 667px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 2){
-     body {
-        /*background-color: green;*/
-        overflow: hidden;
-    }
-     .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      display: block;
-      margin: auto;
-      width: 940px;
-      height: 500px;
-    }
-    #uploading {
-      position: absolute;
-      margin: 75px 0 0 330px;
-      width: 300px;
-      height: 300px;
-    }
-    .sending{
-      position: absolute;
-      margin: 380px 0 0 390px;
-      font-size: 50px;
-    }
-
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .stop{
-      margin-top: 180px;
-    }
-     .send{
-      margin-top: 180px;
-    }
-    .note{
-      font-size: 25px;
-      padding: 10px;
-    }
-    .flash{
-      font-size: 35px;
-      padding: 10px;
-    }
-     #landscape{
-      display: none;
-    }
-
-    .alert-notice{
-      text-align: center;
-    }
-
-
-/*Error message*/
-  .message{
-    text-align: center;
-  }
-}
-/* iPhone 6 Plus portrait */
-@media screen and (device-width: 414px) and (device-height: 736px){
-     body {
-        /*background-color: pink;*/
-        overflow: hidden;
-    }
-   .note{
-      font-size: 50px;
-      padding: 15px;
-    }
-    .SignInGoogle{
-      width: 700px;
-      height: 150px;
-    }
-    #video {
-      margin: 0 0px 0 10px;
-    }
-     #landscape{
-      display: block;
-      margin: 100px 0 0 120px;
-      width: 800px;
-      height: 600px;
-    }
-}
-/* iPhone 6 Plus landscape */
-@media screen and (device-width: 736px) and (device-height: 414px){
-     body {
-        /*background-color: pink;*/
-        overflow: hidden;
-    }
-    .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      display: block;
-      margin: auto;
-      width: 940px;
-      height: 500px;
-    }
-    #uploading {
-      position: absolute;
-      margin: 75px 0 0 330px;
-      width: 300px;
-      height: 300px;
-    }
-    .sending{
-      position: absolute;
-      margin: 380px 0 0 390px;
-      font-size: 50px;
-    }
-
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .stop{
-      margin-top: 180px;
-    }
-     .send{
-      margin-top: 180px;
-    }
-    .note{
-      font-size: 25px;
-      padding: 10px;
-    }
-    .flash{
-      font-size: 35px;
-      padding: 10px;
-    }
-     #landscape{
-      display: none;
-    }
-
-    .alert-notice{
-      text-align: center;
-    }
-
-
-/*Error message*/
-  .message{
-    text-align: center;
-  }
-}
-
-/* Nexus portrait */
-@media screen and (device-width: 412px) and (device-height: 732px){
-   body {
-        /*background-color: orange;*/
-        overflow: hidden;
-    }
-    .note{
-      font-size: 50px;
-      padding: 15px;
-    }
-    .SignInGoogle{
-      width: 700px;
-      height: 150px;
-    }
-    #video {
-      margin: 0 0px 0 10px;
-    }
-     #landscape{
-      display: block;
-      margin: 100px 0 0 120px;
-      width: 800px;
-      height: 600px;
-    }
-}
-/* Nexus landscape */
-@media screen and (device-width: 732px) and (device-height: 412px){
-   body {
-        /*background-color: orange;*/
-        overflow: hidden;
-    }
-   .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      display: block;
-      margin: auto;
-      width: 940px;
-      height: 500px;
-    }
-    #uploading {
-      position: absolute;
-      margin: 75px 0 0 330px;
-      width: 300px;
-      height: 300px;
-    }
-    .sending{
-      position: absolute;
-      margin: 380px 0 0 390px;
-      font-size: 50px;
-    }
-
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .stop{
-      margin-top: 180px;
-    }
-     .send{
-      margin-top: 180px;
-    }
-    .note{
-      font-size: 25px;
-      padding: 10px;
-    }
-    .flash{
-      font-size: 35px;
-      padding: 10px;
-    }
-     #landscape{
-      display: none;
-    }
-
-    .alert-notice{
-      text-align: center;
-    }
-
-
-/*Error message*/
-  .message{
-    text-align: center;
-  }
-}
-
-/* Galaxy portrait*/
-@media screen and (device-width: 360px) and (device-height: 640px){
-   body {
-        /*background-color: yellow;*/
-        overflow: hidden;
-    }
-    .note{
-      font-size: 50px;
-      padding: 15px;
-    }
-    .SignInGoogle{
-      width: 700px;
-      height: 150px;
-    }
-    #video {
-      margin: 0 0px 0 10px;
-    }
-     #landscape{
-      display: block;
-      margin: 100px 0 0 120px;
-      width: 800px;
-      height: 600px;
-    }
-
-}
-/* Galaxy landscape*/
-@media screen and (device-width: 640px) and (device-height: 360px){
-   body {
-        /*background-color: yellow;*/
-        overflow: hidden;
-    }
-    .user_name{
-      font-size: 20px;
-      text-align: center;
-      margin-top: 5px;
-    }
-    .donor-info{
-      font-size: 27px;
-      color: #222222;
-      background-color: #C6C6C6;
-      position: absolute;
-      margin-top: -0px;
-    }
-    .donor-name{
-      margin-left: 350px;
-    }
-    .donation{
-      margin-left: 15px
-    }
-    #video{
-      display: block;
-      margin: auto;
-      width: 940px;
-      height: 500px;
-    }
-    #uploading {
-      position: absolute;
-      margin: 75px 0 0 330px;
-      width: 300px;
-      height: 300px;
-    }
-    .sending{
-      position: absolute;
-      margin: 380px 0 0 390px;
-      font-size: 50px;
-    }
-
-    #center-buttons{
-      position: absolute;
-      margin: -450px 0 0 820px;
-      width: 100px;
-      height: 100vh;
-    }
-    .buttons, .disable-buttons{
-      margin-top: 60px;
-      padding: 20px;
-    }
-    .stop{
-      margin-top: 180px;
-    }
-     .send{
-      margin-top: 180px;
-    }
-    .note{
-      font-size: 25px;
-      padding: 10px;
-    }
-    .flash{
-      font-size: 35px;
-      padding: 10px;
-    }
-     #landscape{
-      display: none;
-    }
-
-    .alert-notice{
-      text-align: center;
-    }
-
-
-/*Error message*/
-  .message{
-    text-align: center;
-  }
-
-}
-
-
-
 
 /*admin*/
 .admin{
@@ -725,4 +197,176 @@ body {
 }
 .row-info-1{
   background-color: #d8d8d8;
+}
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+/* MOBILE */
+
+.white-block{
+  background-color: white;
+  position: absolute;
+  width: 85px;
+  height: 50px;
+}
+
+/* Galaxy landscape*/
+@media screen and (device-width: 640px) and (device-height: 360px){
+  #body{
+    background-color: #cccccc;
+    /*background-color: gray;*/
+  }
+  .landscape-info{
+    display:block;
+  }
+  .deskto-info{
+    display: none;
+  }
+  p {
+    font-size: 17px;
+  }
+  .scroll{
+    padding: 20px;
+  }
+
+  #video{
+    margin: 0 0 0 -28px;
+    width: 555px;
+    height: 310px;
+  }
+
+  #rec{
+    position: absolute;
+    margin: -325px 0 0 250px;
+  }
+
+  #stop{
+    position: absolute;
+    margin: -225px 0 0 246px;
+  }
+
+  #send{
+    position: absolute;
+    margin: -125px 0 0 245px;
+  }
+
+  .videoSection{
+    border-top: 1px solid #bd743d;
+    background: #283d10;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0dff00), to(#283d10));
+    background: -webkit-linear-gradient(top, #0dff00, #283d10);
+    background: -moz-linear-gradient(top, #0dff00, #283d10);
+    background: -ms-linear-gradient(top, #0dff00, #283d10);
+    background: -o-linear-gradient(top, #0dff00, #283d10);
+    padding: 20px;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+     /*color: white;*/
+    font-size: 20px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+  .videoSection:hover {
+    /*border-top-color: #ff0000;*/
+    /*background: #283d10;*/
+    color: #ccc;
+    text-decoration: none;
+  }
+  /*.videoSection:active {
+    text-decoration: none;
+    border-top-color: #ff0000;
+    background: white;
+  }*/
+  .snapThank{
+    padding-top: 120px;
+  }
+
+  #uploading {
+    position: absolute;
+    margin: 0 0 0 20%;
+    width: 300px;
+    height: 300px;
+  }
+  .sending{
+    font-size: 50px;
+  }
+
+  .card {
+    margin-top: -22px;
+  }
+  .message{
+    padding: 1px;
+    margin-top: -50px;
+    text-align: center;
+    list-style: none;
+  }
+  .flash{
+    font-size: 30px;
+    padding: 10px;
+  }
+  #landscape{
+    display: none;
+  }
+
+  .alert-notice{
+    text-align: center;
+  }
+   #bottom{
+    position: absolute;
+    margin-top: -400px;
+  }
+}
+
+
+
+
+/* Galaxy portrait*/
+@media screen and (device-width: 360px) and (device-height: 640px){
+ /* .portrait-position{
+    display:none;
+  }*/
+  #landscape{
+    display: block;
+    width: 170px;
+    height: 100px;
+    margin: auto;
+    margin-top: -20px;
+  }
+  p {
+    font-size: 17px;
+  }
+  .portrait-margin-top{
+    margin-top: -20px;
+  }
+  #video{
+    margin-top: -10px;
+  }
+  #rec{
+    position: absolute;
+    margin: -25px 0 0 -150px;
+  }
+
+  #stop{
+    position: absolute;
+    margin: -25px 0 0 -30px;
+  }
+
+  #send{
+    position: absolute;
+    margin: -25px 0 0 90px;
+  }
+  #bottom{
+    margin-top: 300px;
+  }
 }
