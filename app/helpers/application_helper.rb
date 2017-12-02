@@ -15,11 +15,16 @@ module ApplicationHelper
   end
 
   def schedule
-   # aqui vai checar qual é o dia atual e ver quantas horas falta para o proximo envio de emails
-   # depois de calcular quantas horas falta para o dia do delivery, calcular para o delivery ser feito as 12:pm
+    # The schedule method will calculate how many minutes are left for the next
+    # delivery. The delivery are scheduled to Tuesday and Thursday at 12:00 pm.
+    # The emails that are sent on the delivery day, independent of the time, will
+    # be scheduled to the next delivery day
 
-   # se a hora for maior que 12pm reduzir o tempo necessario para o envio ser feito as 12pm
-   # se a hora for menor que 12pm adicionar o tempo necessario para o envio ser feito as 12pm
+    # aqui vai checar qual é o dia atual e ver quantas horas falta para o proximo envio de emails
+    # depois de calcular quantas horas falta para o dia do delivery, calcular para o delivery ser feito as 12:pm
+
+    # se a hora for maior que 12pm reduzir o tempo necessario para o envio ser feito as 12pm
+    # se a hora for menor que 12pm adicionar o tempo necessario para o envio ser feito as 12pm
 
     t = Time.now
 
@@ -48,13 +53,15 @@ module ApplicationHelper
   end
 
   def total_minutes(hoursDiff, hoursNow, minutes)
+    # hoursDiff is the amount of days in hours to the next deliver day
+    # hoursNow and minutes are the exactly time that the schedule method is trigged
     if (hoursNow > 12)
         hoursPassedTwelve = hoursNow - 12
         totalHours = hoursDiff - hoursPassedTwelve
         return (totalHours * 60) - minutes
       elsif (hoursNow < 12)
         hoursToTwelve = 12 - hoursNow
-        totalHours = hoursDiff + hoursPassedTwelve
+        totalHours = hoursDiff + hoursToTwelve
         return (totalHours * 60) - minutes
       else
         return (hoursDiff * 60) - minutes
