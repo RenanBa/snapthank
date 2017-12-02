@@ -24,47 +24,41 @@ module ApplicationHelper
     t = Time.now
     # t = t + 24*60*60
     if t.sunday?
-      # to Tuesday
-      # 48
-      # return {Wday: "sunday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
+      # 48 hours to Tuesday
+      return total_hours(48, t.hour)
     elsif t.monday?
-      # to Tuesday
-      # 24
-      # return {Wday: "monday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
+      # 24 hours to Tuesday
+      return total_hours(24, t.hour)
     elsif t.tuesday?
-      # if the email is before 12pm schedule to the same day
-      # else if the email is after 12pm schedule to Thursday
-      # return {Wday: "tuesday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
+      # 48 hours to Thursday
+      return total_hours(48, t.hour)
     elsif t.wednesday?
-      # to Thursday
-      # 24
-      # return {Wday: "wednesday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
+      # 24 hours to Thursday
+      return total_hours(24, t.hour)
     elsif t.thursday?
-      # if the email is before 12pm schedule to the same day
-      # else if the email is after 12pm schedule to Tuesday
-      # return {Wday: "thursday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
+      # 120 hours to Tuesday
+      return total_hours(120, t.hour)
     elsif t.friday?
       # 96 hours to Tuesday
-      if (t.hour > 12)
-        hoursPassedTwelve = t.hour - 12
-        totalHours = 96 - hoursPassedTwelve
+      return total_hours(96, t.hour)
+    elsif t.saturday?
+      # 72 hours to Tuesday
+      return total_hours(72, t.hour)
+    end
+  end
+
+  def total_hours(hoursDiff, hoursNow)
+    if (hoursNow > 12)
+        hoursPassedTwelve = hoursNow - 12
+        totalHours = hoursDiff - hoursPassedTwelve
         return totalHours
-      elsif (t.hour < 12)
-        hoursToTwelve = 12 - t.hour
-        totalHours = 96 + hoursPassedTwelve
+      elsif (hoursNow < 12)
+        hoursToTwelve = 12 - hoursNow
+        totalHours = hoursDiff + hoursPassedTwelve
         return totalHours
       else
-        return 96
+        return hoursDiff
       end
-
-      # to Tuesday
-      # 96
-      # return {Wday: "friday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
-    elsif t.saturday?
-      # to Tuesday
-      # 72
-      # return {Wday: "saturday", hour: t.hour, month: t.month, minutes: t.min, mDay: t.day}
-    end
   end
 
 end
