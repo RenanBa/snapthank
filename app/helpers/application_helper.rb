@@ -47,17 +47,17 @@ module ApplicationHelper
     end
   end
 
-  def total_minutes(hoursDiff, hoursNow, total_minutes)
+  def total_minutes(hoursDiff, hoursNow, minutes)
     if (hoursNow > 12)
         hoursPassedTwelve = hoursNow - 12
         totalHours = hoursDiff - hoursPassedTwelve
-        return (totalHours * 60) - total_minutes
+        return (totalHours * 60) - minutes
       elsif (hoursNow < 12)
         hoursToTwelve = 12 - hoursNow
         totalHours = hoursDiff + hoursPassedTwelve
-        return (totalHours * 60) - total_minutes
+        return (totalHours * 60) - minutes
       else
-        return (hoursDiff * 60) - total_minutes
+        return (hoursDiff * 60) - minutes
       end
   end
 
