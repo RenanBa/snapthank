@@ -22,42 +22,42 @@ module ApplicationHelper
    # se a hora for menor que 12pm adicionar o tempo necessario para o envio ser feito as 12pm
 
     t = Time.now
-    # t = t + 24*60*60
+
     if t.sunday?
       # 48 hours to Tuesday
-      return total_hours(48, t.hour)
+      return total_minutes(48, t.hour, t.min)
     elsif t.monday?
       # 24 hours to Tuesday
-      return total_hours(24, t.hour)
+      return total_minutes(24, t.hour, t.min)
     elsif t.tuesday?
       # 48 hours to Thursday
-      return total_hours(48, t.hour)
+      return total_minutes(48, t.hour, t.min)
     elsif t.wednesday?
       # 24 hours to Thursday
-      return total_hours(24, t.hour)
+      return total_minutes(24, t.hour, t.min)
     elsif t.thursday?
       # 120 hours to Tuesday
-      return total_hours(120, t.hour)
+      return total_minutes(120, t.hour, t.min)
     elsif t.friday?
       # 96 hours to Tuesday
-      return total_hours(96, t.hour)
+      return total_minutes(96, t.hour, t.min)
     elsif t.saturday?
       # 72 hours to Tuesday
-      return total_hours(72, t.hour)
+      return total_minutes(72, t.hour, t.min)
     end
   end
 
-  def total_hours(hoursDiff, hoursNow)
+  def total_minutes(hoursDiff, hoursNow, total_minutes)
     if (hoursNow > 12)
         hoursPassedTwelve = hoursNow - 12
         totalHours = hoursDiff - hoursPassedTwelve
-        return totalHours
+        return (totalHours * 60) - total_minutes
       elsif (hoursNow < 12)
         hoursToTwelve = 12 - hoursNow
         totalHours = hoursDiff + hoursPassedTwelve
-        return totalHours
+        return (totalHours * 60) - total_minutes
       else
-        return hoursDiff
+        return (hoursDiff * 60) - total_minutes
       end
   end
 
