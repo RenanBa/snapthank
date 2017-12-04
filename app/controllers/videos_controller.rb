@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
+    @time = Time.new
   end
 
   # def new
