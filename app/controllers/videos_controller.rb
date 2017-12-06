@@ -2,7 +2,6 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    @time = Time.new
   end
 
   # def new
@@ -25,7 +24,7 @@ class VideosController < ApplicationController
         3.times{p "creating link"}
         @video_upload.update!(link: uploaded_video.id)
         respond_to do |format|
-          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: schedule.minutes)
+          UserMailer.thanks_email(@donor, @video_upload).deliver_later(wait: 5.minutes)
           format.html { redirect_to(root_url, notice: 'Uploaded Successfully!') }
           format.json { render json: @video_upload, status: :created, location: @video_upload }
         end
