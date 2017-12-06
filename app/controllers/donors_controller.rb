@@ -54,9 +54,6 @@ class DonorsController < ApplicationController
       if @donor.save
         respond_to do |format|
           @member = select_member(@donor)
-          time = Time.new #test to see the time for delivery
-          time = time + schedule*60
-          p "New donation, schedule to " + time
           UserMailer.welcome_email(@member, @donor).deliver_later(wait: schedule.minutes)
           format.json { render json: @donor, status: :created, location: @donor }
         end
