@@ -14,7 +14,7 @@ module ApplicationHelper
     return false
   end
 
-  def schedule
+  def self.schedule
     # The schedule method will calculate how many minutes are left for the next
     # delivery. The delivery are scheduled to Tuesday and Thursday at 12:00 pm.
     # The emails that are sent on the delivery day, independent of the time, will
