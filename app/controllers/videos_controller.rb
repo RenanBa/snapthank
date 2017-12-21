@@ -2,7 +2,6 @@ class VideosController < ApplicationController
 
   def index
     @video = Video.new
-    p Time.now
   end
 
   # def new
