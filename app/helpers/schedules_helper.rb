@@ -11,9 +11,12 @@ module SchedulesHelper
     schedules.each do |schedule|
       @donor = Donor.find(schedule.donor_id)
       @member = Member.find(schedule.member_id)
-      p @donor
-      p @member
+
       UserMailer.welcome_email(@member, @donor).deliver_now
+
+      schedule = Schedule.find(schedule.id)
+      schedule.sent_status = true
+      schedule.save
     end
   end
 
