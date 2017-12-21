@@ -13,7 +13,7 @@ module SchedulesHelper
       @member = Member.find(schedule.member_id)
       p @donor
       p @member
-      UserMailer.welcome_email(@member, @donor).deliver_now
+      # UserMailer.welcome_email(@member, @donor).deliver_now
     end
   end
 
