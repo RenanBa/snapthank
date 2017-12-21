@@ -12,11 +12,13 @@ module SchedulesHelper
       @donor = Donor.find(schedule.donor_id)
       @member = Member.find(schedule.member_id)
 
-      UserMailer.welcome_email(@member, @donor).deliver_now
-
       schedule = Schedule.find(schedule.id)
       schedule.sent_status = true
       schedule.save
+
+      UserMailer.welcome_email(@member, @donor).deliver_now
+
+
     end
   end
 
