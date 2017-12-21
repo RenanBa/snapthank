@@ -1,8 +1,9 @@
 desc "This task is called by the Heroku scheduler add-on"
-task :update_feed => :environment do
+task :send_emails => :environment do
   puts "Updating feed..."
   # NewsFeed.update
-  p ApplicationHelper::schedule
+  SchedulesHelper::send_emails_batch
+
   puts "done."
 end
 
