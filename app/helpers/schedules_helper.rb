@@ -8,13 +8,13 @@ module SchedulesHelper
     p "self.send_emails_batch"
     schedules = Schedule.all
 
-    schedules.each do |schedule|
-      @donor = Donor.find(schedule.donor_id)
-      @member = Member.find(schedule.member_id)
-      p @donor
-      p @member
+    # schedules.each do |schedule|
+      # @donor = Donor.find(schedule.donor_id)
+      # @member = Member.find(schedule.member_id)
+      # p @donor
+      # p @member
       # UserMailer.welcome_email(@member, @donor).deliver_now
-    end
+    # end
   end
 
   def self.all_schedule
