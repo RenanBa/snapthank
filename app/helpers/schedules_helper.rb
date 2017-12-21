@@ -12,9 +12,8 @@ module SchedulesHelper
       @donor = Donor.find(schedule.donor_id)
       @member = Member.find(schedule.member_id)
 
-      schedule = Schedule.find(schedule.id)
-      schedule.sent_status = true
-      schedule.save
+      schedule_update = Schedule.find_by_id(schedule.id)
+      schedule_update.update(sent_status: true)
 
       UserMailer.welcome_email(@member, @donor).deliver_now
 
