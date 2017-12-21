@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   skip_before_filter :verify_authenticity_token, :only => [:create, :update, :destroy, :login]
   include ApplicationHelper
   include MembersHelper
-
+  include SchedulesHelper
   # Google user info
   private
     def current_user

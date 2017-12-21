@@ -1,6 +1,6 @@
 class Schedule < ApplicationRecord
-  after_initialize :set_sent_default_status
-  def set_sent_default_status
-    self.sent = false
+  after_initialize :set_sent_status
+  def set_sent_status
+    self.sent_status = false
   end
 end
