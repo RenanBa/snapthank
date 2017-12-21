@@ -12,7 +12,7 @@ module SchedulesHelper
       @donor = Donor.find(schedule.donor_id)
       @member = Member.find(schedule.member_id)
 
-      schedule.update(sent_status: true)
+      schedule.destroy
 
 
       UserMailer.welcome_email(@member, @donor).deliver_now
