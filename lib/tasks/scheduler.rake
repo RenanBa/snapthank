@@ -3,10 +3,9 @@ task :send_emails => :environment do
   puts "Updating feed..."
   # NewsFeed.update
   SchedulesHelper::send_emails_batch
-
   puts "done."
 end
 
-task :send_reminders => :environment do
-  User.send_reminders
+task :all_schedule => :environment do
+  SchedulesHelper::all_schedule
 end
