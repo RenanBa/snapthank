@@ -8,7 +8,7 @@ module SchedulesHelper
     p "self.send_emails_batch"
 
     today = Time.now
-    today = today + 8*60*60 # Add 8 hours to the UTC to match PST
+    today = today - 8*60*60 # Add 8 hours to the UTC to match PST
     if (today.tuesday? || today.thursday?)
       puts "Sending scheduled emails"
       schedules = Schedule.all
