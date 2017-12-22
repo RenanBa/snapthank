@@ -29,6 +29,16 @@ module SchedulesHelper
     Schedule.create(donor_id: donor, member_id: member)
   end
 
+  def self.add_all_schedule
+    p "self.add_all_schedule"
+    donors = Donor.all
+    donors.each do |donor|
+      member = select_member(donor)
+      Schedule.create(donor_id: donor, member_id: member)
+    end
+
+  end
+
   def self.all_schedule
     p "self.all_schedule"
     p Schedule.all
