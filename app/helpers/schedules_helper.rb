@@ -33,7 +33,7 @@ module SchedulesHelper
     p "self.add_all_schedule"
     donors = Donor.all
     donors.each do |donor|
-      member = select_member(donor)
+      member = MembersHelper::select_member(donor)
       Schedule.create(donor_id: donor, member_id: member)
     end
 
