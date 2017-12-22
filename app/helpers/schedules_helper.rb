@@ -34,9 +34,16 @@ module SchedulesHelper
     donors = Donor.all
     donors.each do |donor|
       member = MembersHelper::select_member(donor)
-      Schedule.create(donor_id: donor, member_id: member)
+      Schedule.create(donor_id: donor.id, member_id: member.id)
     end
+  end
 
+  def self.destroy_schedule
+    p "self.destroy_schedule"
+    schedules = Schedule.all
+    schedules.each do |schedule|
+      schedule.destroy
+    end
   end
 
   def self.all_schedule
