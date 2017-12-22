@@ -14,3 +14,7 @@ end
 task :add_to_schedule => :environment do
   SchedulesHelper::add_to_schedule
 end
+
+task :destroy_schedule => :environment do
+  SchedulesHelper::destroy_schedule
+end
