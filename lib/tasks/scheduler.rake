@@ -6,3 +6,11 @@ end
 task :all_schedule => :environment do
   SchedulesHelper::all_schedule
 end
+
+task :add_all_schedule => :environment do
+  SchedulesHelper::add_all_schedule
+end
+
+task :add_to_schedule => :environment do
+  SchedulesHelper::add_to_schedule
+end
