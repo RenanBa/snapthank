@@ -54,7 +54,7 @@ class DonorsController < ApplicationController
       if @donor.save
         respond_to do |format|
           @member = select_member(@donor)
-          UserMailer.welcome_email(@member, @donor).deliver_later
+          Schedule.create(donor_id: @donor.id, member_id: @member.id)
           format.json { render json: @donor, status: :created, location: @donor }
         end
       else
